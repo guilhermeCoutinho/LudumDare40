@@ -113,14 +113,5 @@ public class GridBuilder : SingletonMonoBehaviour<GridBuilder> {
 }
 [System.Serializable]
 public class CellElement {
-	public enum Type {
-		EMPTY ,
-		INITIAL_POSITION ,
-		FLOOR,
-		END_POSITION ,
-		ENEMY_POSITION
-	}
-
-	public Type type ;
 	public Color color ;
 }

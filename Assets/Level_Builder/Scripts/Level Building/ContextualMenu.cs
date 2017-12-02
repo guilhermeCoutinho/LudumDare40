@@ -29,9 +29,9 @@ public class ContextualMenu : SingletonMonoBehaviour<ContextualMenu> {
 	}
 	void setNameNColor (GameObject clone , int i)
 	{
-		clone.name = GridBuilder.Instance.cellTypeColor [i].type.ToString ();
+		clone.name = "Tile with number " + i;
 		clone.GetComponent<Image> ().color = GridBuilder.Instance.cellTypeColor [i].color;
-		SetClickListener (clone, (int)GridBuilder.Instance.cellTypeColor[i].type);
+		SetClickListener (clone, i);
 	}
 
 	void SetClickListener (GameObject clone, int i)

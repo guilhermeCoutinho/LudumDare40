@@ -41,12 +41,6 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
                     go.transform.name = "Cell_"+ i + "," + j + "_" + value;
                     go.transform.position = new Vector3( j - colCount/2, (rowCount-1- i) -rowCount/2 , 0);
                 }
-                if (value == (int)CellElement.Type.INITIAL_POSITION)
-                {
-                    GameObject go = Instantiate(playerPrefab, transform.parent);
-                    go.transform.name = "Player";
-                    go.transform.position = new Vector3(j - colCount / 2, (rowCount - 1 - i) - rowCount / 2, 0);
-                }
             }
         }
         model.printGrid();

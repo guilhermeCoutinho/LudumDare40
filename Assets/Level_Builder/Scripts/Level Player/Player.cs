@@ -14,14 +14,9 @@ public class Player : MonoBehaviour {
     
     void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-            MovePlayer(Vector2Int.Right);
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-            MovePlayer(Vector2Int.Up);
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-            MovePlayer(Vector2Int.Left);
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-            MovePlayer(Vector2Int.Down);
+        if (Input.anyKeyDown ){
+            print (Input.inputString);
+        }
     }
 
     void MovePlayer (Vector2Int direction)
@@ -32,8 +27,6 @@ public class Player : MonoBehaviour {
 
     void UpdateGameState ()
     {
-        levelData.playerPositionInGrid.print();
-        transform.position = levelData.getWorldPosition(levelData.playerPositionInGrid);
     }
 
 }
