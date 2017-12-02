@@ -52,31 +52,61 @@ public class Level
         int deltaX = playerInput.x - player.currentPosition.x ;
         int deltaY = playerInput.y - player.currentPosition.y ;
 
-        if (deltaX == 0 && deltaY == -1){
-            // moveLeft
-            player.transform.position += Vector3.left;
-            player.currentPosition.y -= 1;
-        }
-        else if (deltaX == 0 && deltaY == 1){
-            // moveRight
-            player.transform.position += Vector3.right;
-            player.currentPosition.y += 1;
-        }
-        else if (deltaY == 0 && deltaX == 1){
-            // MOVE DOWN
-            player.transform.position += Vector3.down;
-            player.currentPosition.x += 1;
-        }
-        else if (deltaY == 0  && deltaX == -1){
-            player.transform.position += Vector3.up;
-            player.currentPosition.x -= 1;
-        }else {
-            return false;
+        if (deltaX == 0 && deltaY == -1) {
+			moveLeft();
+		} else if (deltaX == 0 && deltaY == 1) {
+			moveRight();
+		} else if (deltaY == 0 && deltaX == 1) {
+			moveDown();
+		} else if (deltaY == 0  && deltaX == -1) {
+			moveUp();
+		} else {
+            return false; //não conseguiu mover
         }   
-        return true;
+        return true; //conseguiu mover
     }
 
-    void moveEnemies ()
+	bool testGround(int x, int y) {
+		return grid[x, y] == LevelLoader.Instance.floorIdInFile;
+	}
+
+	private void moveUp() {
+		if (testGround(player.currentPosition.x - 1, player.currentPosition.y)) {
+			player.transform.position += Vector3.up;
+			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.floorIdInFile;
+			player.currentPosition.x -= 1;
+			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.playerIdInFile;
+		}
+	}
+
+	private void moveDown() {
+		if (testGround(player.currentPosition.x + 1, player.currentPosition.y)) {
+			player.transform.position += Vector3.down;
+			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.floorIdInFile;
+			player.currentPosition.x += 1;
+			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.playerIdInFile;
+		}
+	}
+
+	private void moveRight() {
+		if (testGround(player.currentPosition.x, player.currentPosition.y + 1)) {
+			player.transform.position += Vector3.right;
+			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.floorIdInFile;
+			player.currentPosition.y += 1;
+			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.playerIdInFile;
+		}
+	}
+
+	private void moveLeft() {
+		if (testGround(player.currentPosition.x, player.currentPosition.y - 1)) {
+			player.transform.position += Vector3.left;
+			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.floorIdInFile;
+			player.currentPosition.y -= 1;
+			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.playerIdInFile;
+		}
+	}
+
+	void moveEnemies ()
     {
     }
 

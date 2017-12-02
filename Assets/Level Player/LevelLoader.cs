@@ -8,7 +8,10 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
     //public int level;
     public string levelName ;
     public int playerIdInFile;
+	public int wallIdInFile;
+	public int floorIdInFile;
     public GameObject playerPrefab;
+	public GameObject wallPrefab;
     public ObjectPool pool;
 
     Level model;
@@ -45,8 +48,11 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
                 if (value == playerIdInFile){
                     InstantiatePlayer (new Vector2Int(i,j),colCount,rowCount);
                 }
-            }
-        }
+				if (value == wallIdInFile) {
+					InstantiateWall (new Vector2Int(i, j), colCount, rowCount);
+				}
+			}
+		}
     }
 
     void InstantiatePlayer (Vector2Int position , int colCount , int rowCount) {
@@ -57,5 +63,10 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
         playerComponent.currentPosition = new Vector2Int (position.x, position.y);
         LoadedLevel.setPlayer(playerComponent);
     }
-    
+
+	void InstantiateWall(Vector2Int position, int colCount, int rowCount) {
+		GameObject playerGO = GameObject.Instantiate(wallPrefab,
+				new Vector3(position.y - (colCount - 1) / 2f, (rowCount - 1 - position.x) - rowCount / 2f, -1),
+				wallPrefab.transform.rotation);
+	}
 }
