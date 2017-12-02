@@ -9,6 +9,7 @@ public class Level
     int Height { get { return grid.GetLength(0); } }
 
     Player player;
+    KeyboardMapper keyboard;
 
     public Level(int rowCount, int colCount)
     {
@@ -63,7 +64,6 @@ public class Level
 		} else {
             return false; //não conseguiu mover
         }
-		printGrid();
         return true; //conseguiu mover
     }
 
@@ -80,14 +80,36 @@ public class Level
 	}
 
 	private void move(Vector2Int d) {
-		if (canMove(player.currentPosition, player.currentPosition+d)) {
+		if (canMove(player.currentPosition, player.currentPosition+d) ) {
 			player.transform.position += d.ToVector3();
 			grid[player.currentPosition.x, player.currentPosition.y] = player.onTopOf;
 			player.currentPosition += d;
 			player.onTopOf = grid[player.currentPosition.x, player.currentPosition.y];
 			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.playerId;
 		}
+        else if (canMoveBox(player.currentPosition,d)){
+            player.transform.position += d.ToVector3();
+            grid[player.currentPosition.x, player.currentPosition.y] = player.onTopOf;
+            player.currentPosition += d;
+            player.onTopOf = Box.getBoxByPosition(player.currentPosition).onTopOf;
+        }
 	}
+
+    bool canMoveBox (Vector2Int origin, Vector2Int direction) {
+        Vector2Int target = origin + direction;
+        if( grid[ target.x,target.y] == LevelLoader.Instance.boxId){
+            Vector2Int boxTargetAfterBeingPushed = target + direction;
+            if ( validBoxCollisions ( grid[boxTargetAfterBeingPushed.x,boxTargetAfterBeingPushed.y])){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    bool validBoxCollisions (int collisionId) {
+        return collisionId == LevelLoader.Instance.floorId;
+    }
 
     bool insideGrid (Vector2Int p) {
         if (p.x >= Height || p.x < 0 || p.y >= Width || p.y < 0 )
