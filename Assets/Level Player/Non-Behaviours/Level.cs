@@ -91,7 +91,15 @@ public class Level
             player.transform.position += d.ToVector3();
             grid[player.currentPosition.x, player.currentPosition.y] = player.onTopOf;
             player.currentPosition += d;
-            player.onTopOf = Box.getBoxByPosition(player.currentPosition).onTopOf;
+            grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.playerId;
+            
+            Box movingBox = Box.getBoxByPosition(player.currentPosition);
+            movingBox.transform.position += d.ToVector3();
+            movingBox.currentPosition += d;
+
+            player.onTopOf = movingBox.onTopOf;
+            movingBox.onTopOf = grid[movingBox.currentPosition.x,movingBox.currentPosition.y];
+            grid[movingBox.currentPosition.x,movingBox.currentPosition.y] = LevelLoader.Instance.boxId;
         }
 	}
 
