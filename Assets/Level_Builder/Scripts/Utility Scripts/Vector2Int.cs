@@ -27,6 +27,13 @@ public class Vector2Int {
 		return new Vector3(y, -x, 0);
 	}
 
+	public bool Equals(Vector2Int v1, Vector2Int v2) {
+		if (v1 != null && v2 != null) {
+			return v1.x == v2.x && v1.y == v2.y;
+		} else {
+			return false;
+		}
+	}
 	public static Vector2Int operator +(Vector2Int v1, Vector2Int v2) {
 		return new Vector2Int(v1.x + v2.x, v1.y + v2.y);
 	}
@@ -44,12 +51,4 @@ public class Vector2Int {
 	public static Vector2Int operator /(Vector2Int v1, int c) {
 		return new Vector2Int(v1.x * 1/c, v1.y * 1/c);
 	}
-    public static bool operator == (Vector2Int v1, Vector2Int v2)
-    {
-        return v1.x == v2.x&& v1.y == v2.y;
-    }
-    public static bool operator !=(Vector2Int v1, Vector2Int v2)
-    {
-        return !(v1==v2);
-    }
 }
