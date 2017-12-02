@@ -26,7 +26,7 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
         int colCount= 0;
         List<int> data;
 //        data = CSVParser.ParseCSV(FILE_NAME + level + ".csv", out colCount);
-        data = CSVParser.ParseCSV (levelName + ".csv" , out colCount);
+        data = CSVParser.ParseCSV ( levelName + ".csv" , out colCount);
 
         int rowCount = data.Count / colCount;
 

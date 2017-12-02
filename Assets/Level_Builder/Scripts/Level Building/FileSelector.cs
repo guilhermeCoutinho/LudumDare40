@@ -61,7 +61,7 @@ public class FileSelector : MonoBehaviour {
 	}
 
 	public void PopulateFileList () {
-		string path = "LevelData/";
+		string path = "Build/LevelData/";
 		DirectoryInfo directoryInfo = new DirectoryInfo (path);
 		flushButtons ();
 		SetupRectTransformSize (directoryInfo.GetFiles ().Length);
