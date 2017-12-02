@@ -68,7 +68,7 @@ public class Level
     }
 
 	bool canMove(Vector2Int origin, Vector2Int target) {
-		return isGround(target.x, target.y)||isKey(target.x, target.y);
+		return (isGround(target.x, target.y)||isKey(target.x, target.y))&&insideGrid(target);
 	}
 
 	bool isGround(int x, int y) {
