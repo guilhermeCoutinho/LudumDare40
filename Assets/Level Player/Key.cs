@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Key : MonoBehaviour {
+	public int id;
     public static List<Key> keyList;
 	public Vector2Int currentPosition;
 

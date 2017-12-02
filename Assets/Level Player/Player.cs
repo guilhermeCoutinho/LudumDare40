@@ -7,9 +7,11 @@ public class Player : MonoBehaviour {
     Level level;
     public Vector2Int currentPosition;
 	public int onTopOf;
+    List<int> keyRing;
 
     void Start() {
         level = LevelLoader.Instance.LoadedLevel;
+        keyRing = new List<int>();
 	}
 
 	public void Initialize(Vector2Int pos, int startingId) {
@@ -29,8 +31,10 @@ public class Player : MonoBehaviour {
 					MovePlayer(playerInput);
 					if (onTopOf == LevelLoader.Instance.keyId) {
 						onTopOf = LevelLoader.Instance.floorId;
-                        if(Key.getKeyByPosition(currentPosition)!=null){
-                            Destroy(Key.getKeyByPosition(currentPosition));
+                        Key keyComponnent = Key.getKeyByPosition(currentPosition);
+                        if(keyComponnent!=null){
+                            keyRing.Add(keyComponnent.id);
+                            Destroy(keyComponnent.gameObject);
                         }
 					}
 				}
