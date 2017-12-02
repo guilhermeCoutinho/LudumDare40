@@ -223,15 +223,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c41c6f297b3f6142bdfe7a4c3cedc10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: teste2
+  levelName: level5
   playerId: 4
   wallId: 0
   floorId: 2
   keyId: 1
+  boxId: 3
   playerPrefab: {fileID: 1741306003896906, guid: 1e1ee396a72037341975746f9ccd1524,
     type: 2}
   wallPrefab: {fileID: 1741306003896906, guid: 39c66ffd57e626343a3a49d424e205c0, type: 2}
   keyPrefab: {fileID: 1741306003896906, guid: c0582b64fe29fd548b349920455c4e10, type: 2}
+  boxPrefab: {fileID: 1741306003896906, guid: 3722491f602506e439370fd1aeb34956, type: 2}
   pool: {fileID: 792209904}
 --- !u!4 &987654147
 Transform:

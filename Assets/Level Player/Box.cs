@@ -15,4 +15,13 @@ public class Box : MonoBehaviour {
 
 	public int onTopOf;
 	public Vector2Int currentPosition;
+
+	public void Initialize (Vector2Int position) {
+		print ("Instantiating box");
+		if(boxList == null)
+			boxList = new List<Box>();
+		boxList.Add(this);
+		currentPosition = position;
+        onTopOf = LevelLoader.Instance.floorId;
+	}
 }

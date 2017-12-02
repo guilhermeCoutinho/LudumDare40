@@ -53,12 +53,12 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
                 if (value == playerId){
                     InstantiatePlayer (new Vector2Int(i,j),colCount,rowCount);
                 }
-				if (value == wallId) {
+				if (value == wallId)
 					InstantiateWall (new Vector2Int(i, j), colCount, rowCount);
-				}
-				if (value == keyId) {
+				if (value == keyId) 
 					InstantiateKey(new Vector2Int(i, j), colCount, rowCount);
-				}
+                if (value == boxId)
+                    InstantiateBox(new Vector2Int(i, j), colCount, rowCount);
 			}
 		}
     }
@@ -83,4 +83,14 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
 				new Vector3(position.y - (colCount - 1) / 2f, (rowCount - 1 - position.x) - rowCount / 2f, -1),
 				keyPrefab.transform.rotation);
 	}
+
+    void InstantiateBox(Vector2Int position, int colCount, int rowCount)
+    {
+        GameObject boxGO = Instantiate(boxPrefab,
+                new Vector3(position.y - (colCount - 1) / 2f, (rowCount - 1 - position.x) - rowCount / 2f, -2),
+                boxPrefab.transform.rotation);
+        Box boxComponnent = boxGO.GetComponent<Box>();
+        boxComponnent.Initialize(position);
+    }
+
 }

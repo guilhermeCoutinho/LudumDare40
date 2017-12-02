@@ -107,13 +107,14 @@ public class Level
         Vector2Int target = origin + direction;
         if( grid[ target.x,target.y] == LevelLoader.Instance.boxId){
             Vector2Int boxTargetAfterBeingPushed = target + direction;
+            if (!insideGrid(boxTargetAfterBeingPushed))
+                return false;
             if ( validBoxCollisions ( grid[boxTargetAfterBeingPushed.x,boxTargetAfterBeingPushed.y])){
                 return true;
             }
         }
         return false;
     }
-
 
     bool validBoxCollisions (int collisionId) {
         return collisionId == LevelLoader.Instance.floorId;
