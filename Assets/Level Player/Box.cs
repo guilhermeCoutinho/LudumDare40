@@ -7,7 +7,7 @@ public class Box : MonoBehaviour {
 
 	public static Box getBoxByPosition(Vector2Int position) {
 		for (int i=0;i<boxList.Count;i++){
-			if (boxList[i].currentPosition == position)
+			if (boxList[i].currentPosition.isEqual(position) )
 				return boxList[i];
 		}
 		return null;

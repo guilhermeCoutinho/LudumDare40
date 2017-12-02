@@ -27,9 +27,9 @@ public class Vector2Int {
 		return new Vector3(y, -x, 0);
 	}
 
-	public bool Equals(Vector2Int v1, Vector2Int v2) {
-		if (v1 != null && v2 != null) {
-			return v1.x == v2.x && v1.y == v2.y;
+	public bool isEqual( Vector2Int v2) {
+		if (v2 != null) {
+			return x == v2.x && y == v2.y;
 		} else {
 			return false;
 		}
