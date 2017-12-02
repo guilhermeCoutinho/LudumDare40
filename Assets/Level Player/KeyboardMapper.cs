@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class KeyboardMapper  {
 
-	static string[] keyboardMap = {
+	static string[] keyboardMapBrazil = {
 		"1234567890",
 		"qwertyuiop",
-		"asdfghjkl",
-		"zxcvbnm"
+		"asdfghjklç",
+		"zxcvbnm,.;"
 	};
 
+    static string[] keyboardMapEUA = {
+        "1234567890",
+        "qwertyuiop",
+        "asdfghjkl;",
+        "zxcvbnm,./"
+    };
 
 	public static Vector2Int getPositionInMap (char c) {
-		for (int i=0;i<keyboardMap.Length;i++){
-			for (int j=0;j<keyboardMap[i].Length;j++){
-				if (c == keyboardMap[i][j]){
+		c = c.ToString().ToLower()[0];
+		for (int i=0;i<keyboardMapBrazil.Length;i++){
+			for (int j=0;j<keyboardMapBrazil[i].Length;j++){
+				if (c == keyboardMapBrazil[i][j]){
 					return new Vector2Int (i,j);
 				}
 			}
