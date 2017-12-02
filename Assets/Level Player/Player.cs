@@ -13,8 +13,15 @@ public class Player : MonoBehaviour {
 
     void Update ()
     {
-        if (Input.anyKeyDown ){
-            print (Input.inputString);
+        if (Input.anyKeyDown)
+        {
+            string rawInput = Input.inputString;
+            if (rawInput.Length > 0)
+            {
+                Vector2Int playerInput = KeyboardMapper.getPositionInMap(rawInput[0]);
+                if (playerInput != null) 
+                    MovePlayer(playerInput);
+            }
         }
     }
 

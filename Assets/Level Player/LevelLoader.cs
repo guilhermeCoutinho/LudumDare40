@@ -7,6 +7,8 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
     const string FILE_NAME = "Level ";
     //public int level;
     public string levelName ;
+    public int playerIdInFile;
+    public GameObject playerPrefab;
     public ObjectPool pool;
 
     Level model;
@@ -40,9 +42,20 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
                 GameObject go = pool.getObject();
                 go.transform.name = "Cell_"+ i + "," + j + "_" + value;
                 go.transform.position = new Vector3( j - (colCount-1)/2f , (rowCount-1- i) - rowCount/2f , 0);
+                if (value == playerIdInFile){
+                    InstantiatePlayer (new Vector2Int(i,j),colCount,rowCount);
+                }
             }
         }
-        model.printGrid();
+    }
+
+    void InstantiatePlayer (Vector2Int position , int colCount , int rowCount) {
+        GameObject playerGO = GameObject.Instantiate(playerPrefab,
+                new Vector3(position.y - (colCount - 1) / 2f, (rowCount - 1 - position.x) - rowCount / 2f, -1),
+                playerPrefab.transform.rotation);
+        Player playerComponent = playerGO.GetComponent<Player>();
+        playerComponent.currentPosition = new Vector2Int (position.x, position.y);
+        LoadedLevel.setPlayer(playerComponent);
     }
     
 }

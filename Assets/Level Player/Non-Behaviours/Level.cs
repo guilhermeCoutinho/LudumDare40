@@ -8,7 +8,7 @@ public class Level
     int Width  {get { return grid.GetLength(1); } }
     int Height { get { return grid.GetLength(0); } }
 
-    Vector2Int playerPosition ;
+    Player player;
 
     public Level(int rowCount, int colCount)
     {
@@ -18,6 +18,10 @@ public class Level
     public void setCell(int x, int y, int v)
     {
         grid[x, y] = v;
+    }
+
+    public void setPlayer (Player player) {
+        this.player = player;
     }
 
     public Vector3 getWorldPosition (Vector2Int positionInGrid)
@@ -45,20 +49,27 @@ public class Level
 
     public bool MovePlayer (Vector2Int playerInput)
     {
-        int deltaX = playerInput.x - playerPosition.x ;
-        int deltaY = playerInput.y - playerPosition.y ;
-        
-        if (deltaX == -1 && deltaY == 0){
-            // moveLeft 
+        int deltaX = playerInput.x - player.currentPosition.x ;
+        int deltaY = playerInput.y - player.currentPosition.y ;
+
+        if (deltaX == 0 && deltaY == -1){
+            // moveLeft
+            player.transform.position += Vector3.left;
+            player.currentPosition.y -= 1;
         }
-        else if (deltaX == 1 && deltaY ==0){
+        else if (deltaX == 0 && deltaY == 1){
             // moveRight
+            player.transform.position += Vector3.right;
+            player.currentPosition.y += 1;
         }
-        else if (deltaY == -1 && deltaX == 0){
-            // move up
+        else if (deltaY == 0 && deltaX == 1){
+            // MOVE DOWN
+            player.transform.position += Vector3.down;
+            player.currentPosition.x += 1;
         }
-        else if (deltaY==1 && deltaX ==0){
-            // move down
+        else if (deltaY == 0  && deltaX == -1){
+            player.transform.position += Vector3.up;
+            player.currentPosition.x -= 1;
         }else {
             return false;
         }   

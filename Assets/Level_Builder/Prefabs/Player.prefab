@@ -36,15 +36,15 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4268515100438852}
-  - component: {fileID: 114703569485802534}
   - component: {fileID: 61487941791365686}
+  - component: {fileID: 114551559465610206}
   m_Layer: 0
-  m_Name: Quad_level_player
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4268515100438852
 Transform:
   m_ObjectHideFlags: 1
@@ -86,7 +86,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 59d44237829402149b9848eb656c232b, type: 2}
+  - {fileID: 2100000, guid: 2521f81f10657dc4588071a4b9fd6b03, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -138,7 +138,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114703569485802534
+--- !u!114 &114551559465610206
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -146,7 +146,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1741306003896906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 649212239f3ac284ca8c1894ea663bae, type: 3}
+  m_Script: {fileID: 11500000, guid: 87e762e08f1d0ac4a881565b5999bb1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beingUsed: 0

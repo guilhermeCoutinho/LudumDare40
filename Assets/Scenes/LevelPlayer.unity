@@ -224,6 +224,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: teste2
+  playerIdInFile: 4
+  playerPrefab: {fileID: 1741306003896906, guid: 1e1ee396a72037341975746f9ccd1524,
+    type: 2}
   pool: {fileID: 792209904}
 --- !u!4 &987654147
 Transform:
