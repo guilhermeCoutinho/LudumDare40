@@ -25,8 +25,9 @@ public class Player : MonoBehaviour {
             if (rawInput.Length > 0)
             {
                 Vector2Int playerInput = KeyboardMapper.getPositionInMap(rawInput[0]);
-                if (playerInput != null) 
+                if (playerInput != null) {
                     MovePlayer(playerInput);
+                }
             }
         }
     }

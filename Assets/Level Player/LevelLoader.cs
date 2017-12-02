@@ -11,9 +11,12 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
 	public int wallId;
 	public int floorId;
 	public int keyId;
+    public int boxId;
     public GameObject playerPrefab;
 	public GameObject wallPrefab;
 	public GameObject keyPrefab;
+    public GameObject boxPrefab;
+
     public ObjectPool pool;
 
     Level model;
