@@ -62,7 +62,7 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
 
     void InstantiatePlayer (Vector2Int position , int colCount , int rowCount) {
         GameObject playerGO = Instantiate(playerPrefab,
-                new Vector3(position.y - (colCount - 1) / 2f, (rowCount - 1 - position.x) - rowCount / 2f, -1),
+                new Vector3(position.y - (colCount - 1) / 2f, (rowCount - 1 - position.x) - rowCount / 2f, -2),
                 playerPrefab.transform.rotation);
         Player playerComponent = playerGO.GetComponent<Player>();
 		playerComponent.Initialize(new Vector2Int(position.x, position.y), floorId);
