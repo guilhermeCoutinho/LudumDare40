@@ -29,6 +29,9 @@ public class Player : MonoBehaviour {
 					MovePlayer(playerInput);
 					if (onTopOf == LevelLoader.Instance.keyId) {
 						onTopOf = LevelLoader.Instance.floorId;
+                        if(Key.getKeyByPosition(currentPosition)!=null){
+                            Destroy(Key.getKeyByPosition(currentPosition));
+                        }
 					}
 				}
 			}

@@ -82,6 +82,8 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
 		GameObject keyGO = Instantiate(keyPrefab,
 				new Vector3(position.y - (colCount - 1) / 2f, (rowCount - 1 - position.x) - rowCount / 2f, -1),
 				keyPrefab.transform.rotation);
+        Key keyComponent = keyGO.GetComponent<Key>();
+        keyComponent.Initialize(position);
 	}
 
     void InstantiateBox(Vector2Int position, int colCount, int rowCount)
