@@ -6,12 +6,18 @@ public class Player : MonoBehaviour {
 
     Level level;
     public Vector2Int currentPosition;
+	public int onTopOf;
 
     void Start() {
         level = LevelLoader.Instance.LoadedLevel;
-    }
+	}
 
-    void Update ()
+	public void Initialize(Vector2Int pos, int startingId) {
+		currentPosition = pos;
+		onTopOf = startingId;
+	}
+
+	void Update ()
     {
         if (Input.anyKeyDown)
         {

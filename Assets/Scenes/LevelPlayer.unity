@@ -224,12 +224,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: teste2
-  playerIdInFile: 4
-  wallIdInFile: 0
-  floorIdInFile: 2
+  playerId: 4
+  wallId: 0
+  floorId: 2
+  keyId: 1
   playerPrefab: {fileID: 1741306003896906, guid: 1e1ee396a72037341975746f9ccd1524,
     type: 2}
   wallPrefab: {fileID: 1741306003896906, guid: 39c66ffd57e626343a3a49d424e205c0, type: 2}
+  keyPrefab: {fileID: 1741306003896906, guid: c0582b64fe29fd548b349920455c4e10, type: 2}
   pool: {fileID: 792209904}
 --- !u!4 &987654147
 Transform:

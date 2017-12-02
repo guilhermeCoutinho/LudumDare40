@@ -53,74 +53,45 @@ public class Level
         int deltaY = playerInput.y - player.currentPosition.y ;
 
         if (deltaX == 0 && deltaY == -1) {
-			moveLeft();
+			move(Vector2Int.left);
 		} else if (deltaX == 0 && deltaY == 1) {
-			moveRight();
+			move(Vector2Int.right);
 		} else if (deltaY == 0 && deltaX == 1) {
-			moveDown();
+			move(Vector2Int.down);
 		} else if (deltaY == 0  && deltaX == -1) {
-			moveUp();
+			move(Vector2Int.up);
 		} else {
             return false; //não conseguiu mover
-        }   
+        }
+		printGrid();
         return true; //conseguiu mover
     }
 
-	bool testGround(int x, int y) {
-		return grid[x, y] == LevelLoader.Instance.floorIdInFile;
+	bool canMove(Vector2Int origin, Vector2Int target) {
+		return isGround(target.x, target.y)||isKey(target.x, target.y);
 	}
 
-	private void moveUp() {
-		if (testGround(player.currentPosition.x - 1, player.currentPosition.y)) {
-			player.transform.position += Vector3.up;
-			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.floorIdInFile;
-			player.currentPosition.x -= 1;
-			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.playerIdInFile;
+	bool isGround(int x, int y) {
+		return grid[x, y] == LevelLoader.Instance.floorId;
+	}
+
+	bool isKey(int x, int y) {
+		return grid[x, y] == LevelLoader.Instance.keyId;
+	}
+
+	private void move(Vector2Int d) {
+		if (canMove(player.currentPosition, player.currentPosition+d)) {
+			player.transform.position += d.ToVector3();
+			grid[player.currentPosition.x, player.currentPosition.y] = player.onTopOf;
+			player.currentPosition += d;
+			player.onTopOf = grid[player.currentPosition.x, player.currentPosition.y];
+			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.playerId;
 		}
 	}
-
-	private void moveDown() {
-		if (testGround(player.currentPosition.x + 1, player.currentPosition.y)) {
-			player.transform.position += Vector3.down;
-			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.floorIdInFile;
-			player.currentPosition.x += 1;
-			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.playerIdInFile;
-		}
-	}
-
-	private void moveRight() {
-		if (testGround(player.currentPosition.x, player.currentPosition.y + 1)) {
-			player.transform.position += Vector3.right;
-			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.floorIdInFile;
-			player.currentPosition.y += 1;
-			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.playerIdInFile;
-		}
-	}
-
-	private void moveLeft() {
-		if (testGround(player.currentPosition.x, player.currentPosition.y - 1)) {
-			player.transform.position += Vector3.left;
-			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.floorIdInFile;
-			player.currentPosition.y -= 1;
-			grid[player.currentPosition.x, player.currentPosition.y] = LevelLoader.Instance.playerIdInFile;
-		}
-	}
-
-	void moveEnemies ()
-    {
-    }
-
-    bool isEnemyInPosition (Vector2Int position) {
-        return false;
-    }
 
     bool insideGrid (Vector2Int p) {
         if (p.x >= Height || p.x < 0 || p.y >= Width || p.y < 0 )
             return false;
         return true;
-    }
-
-    bool isFloor (Vector2Int p) {
-        return false;
     }
 }

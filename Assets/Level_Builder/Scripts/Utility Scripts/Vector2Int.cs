@@ -1,4 +1,6 @@
-﻿public class Vector2Int {
+﻿using UnityEngine;
+
+public class Vector2Int {
     public int x;
     public int y;
     public static Vector2Int right =new Vector2Int(0, 1);
@@ -20,4 +22,26 @@
     public override string ToString() {
         return (x + "," + y);
     }
+
+	public Vector3 ToVector3() {
+		return new Vector3(y, -x, 0);
+	}
+
+	public static Vector2Int operator +(Vector2Int v1, Vector2Int v2) {
+		return new Vector2Int(v1.x + v2.x, v1.y + v2.y);
+	}
+
+	public static Vector2Int operator -(Vector2Int v1) {
+		return new Vector2Int(-v1.x , -v1.y);
+	}
+
+	public static Vector2Int operator -(Vector2Int v1, Vector2Int v2) {
+		return v1 + (-v2);
+	}
+	public static Vector2Int operator *(Vector2Int v1, int c) {
+		return new Vector2Int(v1.x*c, v1.y*c);
+	}
+	public static Vector2Int operator /(Vector2Int v1, int c) {
+		return new Vector2Int(v1.x * 1/c, v1.y * 1/c);
+	}
 }

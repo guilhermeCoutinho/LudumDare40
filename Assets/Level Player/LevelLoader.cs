@@ -7,11 +7,13 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
     const string FILE_NAME = "Level ";
     //public int level;
     public string levelName ;
-    public int playerIdInFile;
-	public int wallIdInFile;
-	public int floorIdInFile;
+    public int playerId;
+	public int wallId;
+	public int floorId;
+	public int keyId;
     public GameObject playerPrefab;
 	public GameObject wallPrefab;
+	public GameObject keyPrefab;
     public ObjectPool pool;
 
     Level model;
@@ -45,28 +47,37 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
                 GameObject go = pool.getObject();
                 go.transform.name = "Cell_"+ i + "," + j + "_" + value;
                 go.transform.position = new Vector3( j - (colCount-1)/2f , (rowCount-1- i) - rowCount/2f , 0);
-                if (value == playerIdInFile){
+                if (value == playerId){
                     InstantiatePlayer (new Vector2Int(i,j),colCount,rowCount);
                 }
-				if (value == wallIdInFile) {
+				if (value == wallId) {
 					InstantiateWall (new Vector2Int(i, j), colCount, rowCount);
+				}
+				if (value == keyId) {
+					InstantiateKey(new Vector2Int(i, j), colCount, rowCount);
 				}
 			}
 		}
     }
 
     void InstantiatePlayer (Vector2Int position , int colCount , int rowCount) {
-        GameObject playerGO = GameObject.Instantiate(playerPrefab,
+        GameObject playerGO = Instantiate(playerPrefab,
                 new Vector3(position.y - (colCount - 1) / 2f, (rowCount - 1 - position.x) - rowCount / 2f, -1),
                 playerPrefab.transform.rotation);
         Player playerComponent = playerGO.GetComponent<Player>();
-        playerComponent.currentPosition = new Vector2Int (position.x, position.y);
+		playerComponent.Initialize(new Vector2Int(position.x, position.y), floorId);
         LoadedLevel.setPlayer(playerComponent);
     }
 
 	void InstantiateWall(Vector2Int position, int colCount, int rowCount) {
-		GameObject playerGO = GameObject.Instantiate(wallPrefab,
+		GameObject wallGO = Instantiate(wallPrefab,
 				new Vector3(position.y - (colCount - 1) / 2f, (rowCount - 1 - position.x) - rowCount / 2f, -1),
 				wallPrefab.transform.rotation);
+	}
+
+	void InstantiateKey(Vector2Int position, int colCount, int rowCount) {
+		GameObject keyGO = Instantiate(keyPrefab,
+				new Vector3(position.y - (colCount - 1) / 2f, (rowCount - 1 - position.x) - rowCount / 2f, -1),
+				keyPrefab.transform.rotation);
 	}
 }
