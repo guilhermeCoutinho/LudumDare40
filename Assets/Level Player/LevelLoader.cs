@@ -5,12 +5,12 @@ using UnityEngine;
 public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
 
     const string FILE_NAME = "Level ";
-    public int level;
+    //public int level;
+    public string levelName ;
     public ObjectPool pool;
-    public GameObject playerPrefab;
 
-    LevelData model;
-    public LevelData LoadedLevelData
+    Level model;
+    public Level LoadedLevel
     {
         get { return model; }
     }
@@ -23,24 +23,23 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
     {
         int colCount= 0;
         List<int> data;
-        data = CSVParser.ParseCSV(FILE_NAME + level + ".csv", out colCount);
+//        data = CSVParser.ParseCSV(FILE_NAME + level + ".csv", out colCount);
+        data = CSVParser.ParseCSV (levelName + ".csv" , out colCount);
 
         int rowCount = data.Count / colCount;
 
-        model = new LevelData(rowCount , colCount);
+        model = new Level(rowCount , colCount);
         
+
         for (int i = 0; i < rowCount; i++)
         {
             for (int j = 0; j < colCount; j++)
             {
                 int value = data[i * colCount + j];
                 model.setCell(i, j, value);
-                if ( value > 0)
-                {
-                    GameObject go = pool.getObject();
-                    go.transform.name = "Cell_"+ i + "," + j + "_" + value;
-                    go.transform.position = new Vector3( j - colCount/2, (rowCount-1- i) -rowCount/2 , 0);
-                }
+                GameObject go = pool.getObject();
+                go.transform.name = "Cell_"+ i + "," + j + "_" + value;
+                go.transform.position = new Vector3( j - (colCount-1)/2f , (rowCount-1- i) - rowCount/2f , 0);
             }
         }
         model.printGrid();

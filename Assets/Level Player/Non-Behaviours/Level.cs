@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-public class LevelData
+public class Level
 {
     int[,] grid;
     int[,] Grid { get { return grid; } }
@@ -8,7 +8,9 @@ public class LevelData
     int Width  {get { return grid.GetLength(1); } }
     int Height { get { return grid.GetLength(0); } }
 
-    public LevelData(int rowCount, int colCount)
+    Vector2Int playerPosition ;
+
+    public Level(int rowCount, int colCount)
     {
         grid = new int[rowCount, colCount];
     }
@@ -41,18 +43,29 @@ public class LevelData
         Debug.Log(debug);
     }
 
-    public bool MovePlayer (Vector2Int direction)
+    public bool MovePlayer (Vector2Int playerInput)
     {
-        return false;
+        int deltaX = playerInput.x - playerPosition.x ;
+        int deltaY = playerInput.y - playerPosition.y ;
+        
+        if (deltaX == -1 && deltaY == 0){
+            // moveLeft 
+        }
+        else if (deltaX == 1 && deltaY ==0){
+            // moveRight
+        }
+        else if (deltaY == -1 && deltaX == 0){
+            // move up
+        }
+        else if (deltaY==1 && deltaX ==0){
+            // move down
+        }else {
+            return false;
+        }   
+        return true;
     }
 
     void moveEnemies ()
-    {
-    }
-    /* 
-     *  move the enemy in direction that are currently in position
-     */
-    void moveEnemy (Vector2Int direction , Vector2Int position)
     {
     }
 
