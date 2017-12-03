@@ -7,7 +7,7 @@ using System.Text;
 
 public class EnemySpawner : MonoBehaviour {
 	public static string path = "Build/LevelData/";
-
+    public Transform contentParent;
 	public GameObject enemyPrefab;
 	int rowCount , colCount;
 
@@ -42,7 +42,8 @@ public class EnemySpawner : MonoBehaviour {
                         GameObject clone = Instantiate(enemyPrefab,
 						LevelLoader.Instance.getWorldPosition(
 							enemyOrigin.x,enemyOrigin.y,rowCount,colCount, -4),
-						enemyPrefab.transform.rotation);
+						enemyPrefab.transform.rotation,
+                        contentParent);
 						clone.GetComponent<Enemy>().Initialize(enemyOrigin,enemyDestiny,enemyOrigin);
                     }
                 } while (line != null);

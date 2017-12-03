@@ -36,7 +36,9 @@ public class Player : MonoBehaviour {
                             keyRing.Add(keyComponnent.id);
                             Destroy(keyComponnent.gameObject);
                         }
-					}
+					}else if (onTopOf == LevelLoader.Instance.victoryPlateId){
+                        print ("GANHEI PORRA");
+                    }
 				}
 			}
         }

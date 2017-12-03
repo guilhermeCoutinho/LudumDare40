@@ -6,13 +6,15 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
 
     const string FILE_NAME = "Level ";
 
+    string levelName = "level5";
+
+    public Transform contentParent;
     public int floorId;
 
     public int playerId;
     public GameObject playerPrefab;
 
 	public int wallId;
-    public GameObject wallPrefab;
 
 	public int keyId;
     public GameObject keyPrefab;
@@ -26,15 +28,21 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
     public int pressurePlateId;
     public GameObject pressurePlatePrefab;
 
+    public int victoryPlateId;
+    public GameObject victoryPlatePrefab;
+
     public ObjectPool pool;
+    public ObjectPool wallPool;
 
     Level model;
     public Level LoadedLevel
     {
         get { return model; }
     }
-    void Start ()
+    public void LoadLevel (string levelName)
     {
+        destroyContent ();
+        this.levelName = levelName;
         LoadLevel();
         LevelMetaData metadata = gameObject.AddComponent(typeof(LevelMetaData)  ) as LevelMetaData;
         MDParser.Parse(levelName, ref metadata);
@@ -76,6 +84,8 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
                     InstantiateDoor(new Vector2Int(i, j), colCount, rowCount);
                 if (value == pressurePlateId)
                     InstantiatePressurePlate (new Vector2Int(i, j), colCount, rowCount);
+                if (value == victoryPlateId)
+                    InstantiateVictoryPlate(new Vector2Int(i, j), colCount, rowCount);
 			}
 		}
         Camera.main.orthographicSize=rowCount*4/5;
@@ -88,22 +98,21 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
     void InstantiatePlayer (Vector2Int position , int colCount , int rowCount) {
         GameObject playerGO = Instantiate(playerPrefab,
                 getWorldPosition(position.x, position.y, rowCount, colCount, -3),
-                                    playerPrefab.transform.rotation);
+                                    playerPrefab.transform.rotation,contentParent);
         Player playerComponent = playerGO.GetComponent<Player>();
 		playerComponent.Initialize(new Vector2Int(position.x, position.y), floorId);
         LoadedLevel.setPlayer(playerComponent);
     }
 
 	void InstantiateWall(Vector2Int position, int colCount, int rowCount) {
-		GameObject wallGO = Instantiate(wallPrefab,
-                getWorldPosition(position.x, position.y, rowCount, colCount, -2),
-				wallPrefab.transform.rotation);
+		GameObject wallGO = wallPool.getObject();
+        wallGO.transform.position = getWorldPosition(position.x, position.y, rowCount, colCount, -2);
 	}
 
 	void InstantiateKey(Vector2Int position, int colCount, int rowCount) {
 		GameObject keyGO = Instantiate(keyPrefab,
                 getWorldPosition(position.x, position.y, rowCount, colCount, -2),
-				keyPrefab.transform.rotation);
+				keyPrefab.transform.rotation,contentParent);
         Key keyComponent = keyGO.GetComponent<Key>();
         keyComponent.Initialize(position);
 	}
@@ -112,7 +121,7 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
     {
         GameObject boxGO = Instantiate(boxPrefab,
                 getWorldPosition(position.x, position.y, rowCount, colCount, -3),
-                boxPrefab.transform.rotation);
+                boxPrefab.transform.rotation,contentParent);
         Box boxComponnent = boxGO.GetComponent<Box>();
         boxComponnent.Initialize(position);
     }
@@ -121,7 +130,7 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
     {
         GameObject doorGO = Instantiate(doorPrefab,
                 getWorldPosition(position.x, position.y, rowCount, colCount, -2),
-                doorPrefab.transform.rotation);
+                doorPrefab.transform.rotation,contentParent);
         Door doorComponnent = doorGO.GetComponent<Door>();
         doorComponnent.Initialize(position);
     }
@@ -130,8 +139,30 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
     {
         GameObject pressurePlateGO = Instantiate(pressurePlatePrefab,
                 getWorldPosition(position.x, position.y, rowCount, colCount, -1),
-                pressurePlatePrefab.transform.rotation);
+                pressurePlatePrefab.transform.rotation,contentParent);
         PressurePlate pressureComponent = pressurePlateGO.GetComponent<PressurePlate>();
         pressureComponent.Initialize(position);
+    }
+
+    void InstantiateVictoryPlate(Vector2Int position, int colCount, int rowCount)
+    {
+        GameObject victoryPlateGO = Instantiate(victoryPlatePrefab,
+                getWorldPosition(position.x, position.y, rowCount, colCount, -1),
+                victoryPlatePrefab.transform.rotation, contentParent);
+    }
+
+    void destroyContent () {
+        pool.returnAllObjects ();
+        wallPool.returnAllObjects () ;
+        foreach ( Transform t  in contentParent)
+        {
+            Destroy (t.gameObject);
+        }
+        Box.ClearList();
+        Key.ClearList();
+        Door.ClearList ();
+        LevelMetaData toDestroy = GetComponent<LevelMetaData> ();
+        if (toDestroy != null)
+            DestroyImmediate(toDestroy);
     }
 }

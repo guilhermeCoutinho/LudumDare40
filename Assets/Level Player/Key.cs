@@ -7,6 +7,12 @@ public class Key : MonoBehaviour {
     public static List<Key> keyList;
 	public Vector2Int currentPosition;
 
+	public static void ClearList()
+    {
+        if (keyList == null)
+            keyList = new List<Key>();
+        keyList.Clear();
+    }
 	public static Key getKeyByPosition(Vector2Int position) {
 		for (int i=0;i<keyList.Count;i++){
 			if (keyList[i].currentPosition.isEqual(position) )

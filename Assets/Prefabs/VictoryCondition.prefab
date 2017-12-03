@@ -36,10 +36,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4268515100438852}
-  - component: {fileID: 114703569485802534}
   - component: {fileID: 61487941791365686}
+  - component: {fileID: 114479760253965648}
   m_Layer: 0
-  m_Name: Quad_level_player
+  m_Name: VictoryCondition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 59d44237829402149b9848eb656c232b, type: 2}
+  - {fileID: 2100000, guid: b7144a5e2f2d351438c031072d53f13c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -138,7 +138,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114703569485802534
+--- !u!114 &114479760253965648
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -146,7 +146,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1741306003896906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 649212239f3ac284ca8c1894ea663bae, type: 3}
+  m_Script: {fileID: 11500000, guid: eab895bc92d45984492b539a8a4202f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beingUsed: 0

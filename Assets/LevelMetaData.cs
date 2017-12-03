@@ -7,6 +7,8 @@ public class LevelMetaData : MonoBehaviour {
 	public List<RequirementsMetaData> requirements;
 
 	public void LoadMetaData () {
+		if (requirements == null)
+			return;
 		foreach ( RequirementsMetaData metaData in requirements)
 		{
 			Door doorComponent = Door.getDoorByPosition ( new Vector2Int( metaData.doorToOpen) );

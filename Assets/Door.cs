@@ -17,6 +17,13 @@ public class Door : MonoBehaviour {
 		}
 	}
 
+    public static void ClearList()
+    {
+        if (doorList == null)
+            doorList = new List<Door>();
+        doorList.Clear();
+    }
+
 	public static Door getDoorByPosition(Vector2Int position)
     {
         for (int i = 0; i < doorList.Count; i++)
