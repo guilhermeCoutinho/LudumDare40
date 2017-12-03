@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : SingletonMonoBehaviour<GameManager> {
-	public string[] levelSequences;
+	public LevelMapBinding[] levelSequences;
 	private LevelLoader levelLoader;
-
 
 	int playerLifes;
 	int currentLevel ;
+	int mapIndex;
 	bool gameRunning = false;
 
 	void Awake () {
@@ -35,12 +35,19 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	}
 
 	void OpenLevel () {
-		levelLoader.LoadLevel(levelSequences[currentLevel]);
+		levelLoader.LoadMap(
+			levelSequences[currentLevel].levelName + "_" + mapIndex);
 	}
 
 	public void OpenNextLevel () {
 		currentLevel ++ ;
 		OpenLevel();
+	}
+
+	public void GoUpMap() {}
+
+	public void GoDownMap () {
+
 	}
 	
 	public void PlayerReachedGoal () {
@@ -58,4 +65,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		OpenLevel ();
 	}
 
+	[System.Serializable]
+	public class LevelMapBinding {
+		public string levelName ;
+		int mapCount;
+	}
 }

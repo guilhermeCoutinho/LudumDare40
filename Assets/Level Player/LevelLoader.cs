@@ -6,7 +6,7 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
 
     const string FILE_NAME = "Level ";
 
-    string levelName = "level5";
+    string MapName = "level5";
 
     public Transform contentParent;
     public int floorId;
@@ -39,23 +39,22 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
     {
         get { return model; }
     }
-    public void LoadLevel (string levelName)
+    public void LoadMap (string levelName)
     {
         destroyContent ();
-        this.levelName = levelName;
-        LoadLevel();
+        this.MapName = levelName;
+        LoadMap();
         LevelMetaData metadata = gameObject.AddComponent(typeof(LevelMetaData)  ) as LevelMetaData;
         MDParser.Parse(levelName, ref metadata);
         metadata.LoadMetaData();
         GetComponent<EnemySpawner>().SpawnEnemies(levelName,model.Height ,model.Width);
     }
 
-    void LoadLevel ()
+    void LoadMap ()
     {
         int colCount= 0;
         List<int> data;
-//        data = CSVParser.ParseCSV(FILE_NAME + level + ".csv", out colCount);
-        data = CSVParser.ParseCSV ( levelName + ".csv" , out colCount);
+        data = CSVParser.ParseCSV ( MapName + ".csv" , out colCount);
 
         int rowCount = data.Count / colCount;
 
