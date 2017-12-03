@@ -136,5 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464cb3c239e230241bfedc330a4c61d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hole: {fileID: 21300004, guid: ecc7dc84041c36b4c9028d7826dbb679, type: 3}
+  enemy: {fileID: 0}
   interval: 0.5
   sum: 0

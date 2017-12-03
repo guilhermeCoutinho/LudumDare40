@@ -1,34 +1,31 @@
 fileFormatVersion: 2
-guid: 102243e654b61664ba77d28e503cdb41
-timeCreated: 1512337822
+guid: 56a2195a11018c94f9b8f2eee485fd30
+timeCreated: 1512340658
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: escape_pedrao_0
-    21300002: escape_pedrao_1
-    21300004: escape_pedrao_2
-    21300006: escape_pedrao_3
-    21300008: escape_pedrao_4
-    21300010: escape_pedrao_5
-    21300012: escape_pedrao_6
-    21300014: escape_pedrao_7
-    21300016: escape_pedrao_8
-    21300018: escape_pedrao_9
-    21300020: escape_pedrao_10
-    21300022: escape_pedrao_11
-    21300024: escape_pedrao_12
-    21300026: escape_pedrao_13
-    21300028: escape_pedrao_14
-    21300030: escape_pedrao_15
-    21300032: escape_pedrao_16
-    21300034: escape_pedrao_17
-    21300036: escape_pedrao_18
+    21300000: Escape Key Chars Final_0
+    21300002: Escape Key Chars Final_1
+    21300004: Escape Key Chars Final_2
+    21300006: Escape Key Chars Final_3
+    21300008: Escape Key Chars Final_4
+    21300010: Escape Key Chars Final_5
+    21300012: Escape Key Chars Final_6
+    21300014: Escape Key Chars Final_7
+    21300016: Escape Key Chars Final_8
+    21300018: Escape Key Chars Final_9
+    21300020: Escape Key Chars Final_10
+    21300022: Escape Key Chars Final_11
+    21300024: Escape Key Chars Final_12
+    21300026: Escape Key Chars Final_13
+    21300028: Escape Key Chars Final_14
+    21300030: Escape Key Chars Final_15
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    sRGBTexture: 1
+    sRGBTexture: 0
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -115,147 +112,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: escape_pedrao_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 150
-        width: 30
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: escape_pedrao_1
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 150
-        width: 30
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: escape_pedrao_2
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 150
-        width: 30
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: escape_pedrao_3
-      rect:
-        serializedVersion: 2
-        x: 90
-        y: 150
-        width: 30
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: escape_pedrao_4
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 150
-        width: 30
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: escape_pedrao_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 120
-        width: 30
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: escape_pedrao_6
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 120
-        width: 30
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: escape_pedrao_7
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 120
-        width: 30
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: escape_pedrao_8
-      rect:
-        serializedVersion: 2
-        x: 90
-        y: 120
-        width: 30
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: escape_pedrao_9
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 120
-        width: 30
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: escape_pedrao_10
+      name: Escape Key Chars Final_0
       rect:
         serializedVersion: 2
         x: 0
@@ -263,13 +120,13 @@ TextureImporter:
         width: 30
         height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: escape_pedrao_11
+      name: Escape Key Chars Final_1
       rect:
         serializedVersion: 2
         x: 30
@@ -277,13 +134,13 @@ TextureImporter:
         width: 30
         height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: escape_pedrao_12
+      name: Escape Key Chars Final_2
       rect:
         serializedVersion: 2
         x: 60
@@ -291,13 +148,13 @@ TextureImporter:
         width: 30
         height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: escape_pedrao_13
+      name: Escape Key Chars Final_3
       rect:
         serializedVersion: 2
         x: 90
@@ -305,27 +162,13 @@ TextureImporter:
         width: 30
         height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: escape_pedrao_14
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 90
-        width: 30
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: escape_pedrao_15
+      name: Escape Key Chars Final_4
       rect:
         serializedVersion: 2
         x: 0
@@ -333,13 +176,13 @@ TextureImporter:
         width: 30
         height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: escape_pedrao_16
+      name: Escape Key Chars Final_5
       rect:
         serializedVersion: 2
         x: 30
@@ -347,13 +190,13 @@ TextureImporter:
         width: 30
         height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: escape_pedrao_17
+      name: Escape Key Chars Final_6
       rect:
         serializedVersion: 2
         x: 60
@@ -361,13 +204,13 @@ TextureImporter:
         width: 30
         height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: escape_pedrao_18
+      name: Escape Key Chars Final_7
       rect:
         serializedVersion: 2
         x: 90
@@ -375,7 +218,119 @@ TextureImporter:
         width: 30
         height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Escape Key Chars Final_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 30
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Escape Key Chars Final_9
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 30
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Escape Key Chars Final_10
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 30
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Escape Key Chars Final_11
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 30
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Escape Key Chars Final_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Escape Key Chars Final_13
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 0
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Escape Key Chars Final_14
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Escape Key Chars Final_15
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
