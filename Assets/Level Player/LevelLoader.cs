@@ -161,6 +161,7 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
         Box.ClearList();
         Key.ClearList();
         Door.ClearList ();
+        PressurePlate.ClearList ();
         LevelMetaData toDestroy = GetComponent<LevelMetaData> ();
         if (toDestroy != null)
             DestroyImmediate(toDestroy);

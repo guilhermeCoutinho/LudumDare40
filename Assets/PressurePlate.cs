@@ -17,6 +17,13 @@ public class PressurePlate : MonoBehaviour {
         return null;
 	}
 
+	public static void ClearList()
+    {
+        if (pressurePlates == null)
+            pressurePlates = new List<PressurePlate>();
+        pressurePlates.Clear();
+    }
+
 	public void Initialize (Vector2Int position) {
 		if (pressurePlates == null)
 			pressurePlates = new List<PressurePlate>();
