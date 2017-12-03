@@ -41,6 +41,7 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
         LevelMetaData metadata = gameObject.AddComponent(typeof(LevelMetaData)  ) as LevelMetaData;
         MDParser.Parse(levelName, ref metadata);
         metadata.LoadMetaData();
+        GetComponent<EnemySpawner>().SpawnEnemies(levelName,model.Height ,model.Width);
     }
 
     void LoadLevel ()
@@ -75,14 +76,14 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
                     InstantiateBox(new Vector2Int(i, j), colCount, rowCount);
                 if (value == doorId)
                     InstantiateDoor(new Vector2Int(i, j), colCount, rowCount);
-                    if (value == pressurePlateId)
+                if (value == pressurePlateId)
                     InstantiatePressurePlate (new Vector2Int(i, j), colCount, rowCount);
 			}
 		}
         Camera.main.orthographicSize=rowCount*4/5;
     }
 
-    Vector3 getWorldPosition(int i, int j, int rowCount, int colCount, int z){
+    public Vector3 getWorldPosition(int i, int j, int rowCount, int colCount, int z){
        return new Vector3( j - (colCount-1)/2f , (-1)*(i - (rowCount-1)/2f) , z);
     }
 
@@ -135,5 +136,4 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
         PressurePlate pressureComponent = pressurePlateGO.GetComponent<PressurePlate>();
         pressureComponent.Initialize(position);
     }
-
 }

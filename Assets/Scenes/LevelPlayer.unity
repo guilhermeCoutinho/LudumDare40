@@ -205,6 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 987654147}
   - component: {fileID: 987654146}
+  - component: {fileID: 987654148}
   m_Layer: 0
   m_Name: _GM
   m_TagString: Untagged
@@ -253,6 +254,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &987654148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 987654145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0095fa5152e73740907d76c279176cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 1741306003896906, guid: 35eb1e0910fd2dd43acaed736c451427,
+    type: 2}
 --- !u!4 &1952393227 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4268515100438852, guid: 67180995064cdf34eab178cff9958f32,

@@ -5,8 +5,8 @@ public class Level
     int[,] grid;
     int[,] Grid { get { return grid; } }
 
-    int Width  {get { return grid.GetLength(1); } }
-    int Height { get { return grid.GetLength(0); } }
+    public int Width  {get { return grid.GetLength(1); } }
+    public int Height { get { return grid.GetLength(0); } }
 
     public Player player;
     KeyboardMapper keyboard;
@@ -128,7 +128,7 @@ public class Level
         collisionId == LevelLoader.Instance.pressurePlateId;
     }
 
-    bool insideGrid (Vector2Int p) {
+    public bool insideGrid (Vector2Int p) {
         if (p.x >= Height || p.x < 0 || p.y >= Width || p.y < 0 )
             return false;
         return true;
