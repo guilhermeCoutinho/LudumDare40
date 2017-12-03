@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
     public Vector2Int currentPosition;
 	public int onTopOf;
     public List<int> keyRing;
+    bool escapeKey = false;
 
     void Start() {
         level = LevelLoader.Instance.LoadedLevel;
@@ -19,8 +20,12 @@ public class Player : MonoBehaviour {
 		onTopOf = startingId;
 	}
 
+
 	void Update ()
     {
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            escapeKey = true;
+        }
         if (Input.anyKeyDown)
         {
             string rawInput = Input.inputString;
@@ -36,11 +41,12 @@ public class Player : MonoBehaviour {
                             keyRing.Add(keyComponnent.id);
                             Destroy(keyComponnent.gameObject);
                         }
-					}else if (onTopOf == LevelLoader.Instance.victoryPlateId){
-                        GameManager.Instance.PlayerReachedGoal ();
-                    }
+					}
 				}
 			}
+        }
+        if (onTopOf == LevelLoader.Instance.victoryPlateId&&escapeKey){
+            GameManager.Instance.PlayerReachedGoal ();
         }
     }
 
