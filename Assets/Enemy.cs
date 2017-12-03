@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour {
 	public Vector2Int origin;
     public Vector2Int target;
     public Vector2Int position;
+    public Sprite hole;
+    public Sprite enemy;
     Vector2Int direction ;
 
     public float interval = 1f;
@@ -18,7 +20,12 @@ public class Enemy : MonoBehaviour {
         int deltaX = Mathf.Clamp ( target.x - origin.x , -1 , 1 );
         int deltaY = Mathf.Clamp ( target.y - origin.y , -1 , 1);
         direction = new Vector2Int (deltaX,deltaY);
-    }
+/*        if(direction.x==0&&direction.y==0){
+            GetComponentInChildren<SpriteRenderer>().sprite=hole;
+        }else{
+            GetComponentInChildren<SpriteRenderer>().sprite=enemy;
+        }
+*/    }
 
     void Update () {
         sum += Time.deltaTime;
@@ -30,6 +37,11 @@ public class Enemy : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(transform.position,Vector3.forward,out hit,Mathf.Infinity) ){
             if (hit.collider.tag == "PLAYER"){
+                if(direction.x==0&&direction.y==0){
+                    Sound.play(0, (int)Sound.soundEvents.HOLE);
+                }else{
+                    Sound.play(0, (int)Sound.soundEvents.DEATH);
+                }
                 GameManager.Instance.PlayerDied ();
             }             
         }
