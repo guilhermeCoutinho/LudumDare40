@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : SingletonMonoBehaviour<GameManager> {
-	public LevelMapBinding[] levelSequences;
+	public string[] levelSequences;
 	private LevelLoader levelLoader;
 
 	int playerLifes;
@@ -35,8 +35,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	}
 
 	void OpenLevel () {
+		mapIndex = 0;
 		levelLoader.LoadMap(
-			levelSequences[currentLevel].levelName + "_" + mapIndex);
+			levelSequences[currentLevel] + "_" + mapIndex);
 	}
 
 	public void OpenNextLevel () {
@@ -44,10 +45,12 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		OpenLevel();
 	}
 
-	public void GoUpMap() {}
+	public void GoUpMap() {
+		mapIndex ++;
+	}
 
 	public void GoDownMap () {
-
+		mapIndex--;
 	}
 	
 	public void PlayerReachedGoal () {
@@ -63,11 +66,5 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 			return;
 		}
 		OpenLevel ();
-	}
-
-	[System.Serializable]
-	public class LevelMapBinding {
-		public string levelName ;
-		public int mapCount;
 	}
 }
