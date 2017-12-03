@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour {
 	public static List<PressurePlate> pressurePlates;
-
+	public int id;
 	public Vector2Int position ;
 	public bool hasSomethingOnTop ;
 
@@ -18,6 +18,18 @@ public class PressurePlate : MonoBehaviour {
 	}
 
 	public void Initialize (Vector2Int position) {
+		if (pressurePlates == null)
+			pressurePlates = new List<PressurePlate>();
+		pressurePlates.Add(this);
 		this.position = position;
+		
 	}
+
+	void Update( ) { 
+		RaycastHit hit;
+		hasSomethingOnTop =  Physics.Raycast(
+			transform.position,Vector3.back, out hit,Mathf.Infinity) ;
+
+	}
+
 }

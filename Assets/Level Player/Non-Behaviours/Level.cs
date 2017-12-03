@@ -31,7 +31,7 @@ public class Level
     }
     public Vector3 getWorldPosition (int i , int j)
     {
-        return new Vector3(j - Width / 2, (Height - 1 - i) - Height / 2, 0);
+        return new Vector3(j - (Width - 1) / 2f, (Height - 1 - i) - Height / 2f, 0);
     }
 
     public void printGrid()
@@ -68,8 +68,13 @@ public class Level
     }
 
 	bool canMove(Vector2Int origin, Vector2Int target) {
-		return isGround(target.x, target.y)||isKey(target.x, target.y);
+		return isGround(target.x, target.y)||isKey(target.x, target.y) 
+        || isPressurePlate(target) ;
 	}
+
+    bool isPressurePlate (Vector2Int target ){
+        return grid[target.x, target.y] == LevelLoader.Instance.pressurePlateId;
+    }
 
 	bool isGround(int x, int y) {
 		return grid[x, y] == LevelLoader.Instance.floorId;
@@ -117,7 +122,9 @@ public class Level
     }
 
     bool validBoxCollisions (int collisionId) {
-        return collisionId == LevelLoader.Instance.floorId;
+        return collisionId == LevelLoader.Instance.floorId
+        ||
+        collisionId == LevelLoader.Instance.pressurePlateId;
     }
 
     bool insideGrid (Vector2Int p) {

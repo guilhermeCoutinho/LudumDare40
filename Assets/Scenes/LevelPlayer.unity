@@ -237,8 +237,9 @@ MonoBehaviour:
   boxPrefab: {fileID: 1741306003896906, guid: 3722491f602506e439370fd1aeb34956, type: 2}
   doorId: 5
   doorPrefab: {fileID: 1741306003896906, guid: b49ddfc6bca46954198dab671800134b, type: 2}
-  pressurePlateId: 0
-  pressurePlatePrefab: {fileID: 0}
+  pressurePlateId: 6
+  pressurePlatePrefab: {fileID: 1741306003896906, guid: 6775a957e46b0de48a8af6710e1adc4d,
+    type: 2}
   pool: {fileID: 792209904}
 --- !u!4 &987654147
 Transform:
@@ -266,13 +267,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fileName: level5
   requirements:
-  - doorToOpen: {x: 3, y: 8}
+  - doorToOpen: {x: 3, y: 9}
     openAutomatically: 0
-    playerRequiredPosition: {x: 3, y: 7}
+    playerRequiredPosition: {x: 3, y: 8}
     requirements:
+    - positionInGrid: {x: 2, y: 4}
+      type: 1
+      id: 0
+    - positionInGrid: {x: 2, y: 6}
+      type: 1
+      id: 1
     - positionInGrid: {x: 0, y: 6}
       type: 0
-      id: 0
+      id: 2
+    - positionInGrid: {x: 0, y: 8}
+      type: 0
+      id: 3
 --- !u!4 &1952393227 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4268515100438852, guid: 67180995064cdf34eab178cff9958f32,

@@ -12,6 +12,15 @@ public class LevelMetaData : MonoBehaviour {
 			Door doorComponent = Door.getDoorByPosition ( new Vector2Int( metaData.doorToOpen) );
 			doorComponent.Setup(metaData , new Vector2Int (metaData.playerRequiredPosition ),
 			metaData.openAutomatically);
+			foreach (RequirementMetaData data in metaData.requirements){
+				if(data.type ==0){
+					Key.getKeyByPosition( new Vector2Int( data.positionInGrid)).id = data.id;
+				}
+				else if (data.type==1){
+					PressurePlate.GetPressurePlateByPosition
+					(new Vector2Int(data.positionInGrid)).id =  data.id;
+				}
+			}
 		}
 	}
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour {
+	public bool isOpen;
 	public static List<Door> doorList;
 	Vector2Int playerStandPosition;
 	Vector2Int position;
@@ -39,6 +40,7 @@ public class Door : MonoBehaviour {
 		this.playerStandPosition = playerPosition;
 		this.openAutomatic = openAutomatically;
 		keyIds = new List<int>();
+		pressurePlates = new List<PressurePlate>();
 		foreach (RequirementMetaData requirement in requirements.requirements)
 		{
 			if (requirement.type == 0) // ITS A KEY
@@ -64,10 +66,21 @@ public class Door : MonoBehaviour {
 	}
 
     void Update () {
+		toggleActive (hasAllKeys() && hasAllPressurePlates());
+	}
 
-		if (getPlayer.currentPosition.isEqual( playerStandPosition))
-		{
-			print ("Player tem todas as keys " + hasAllKeys());
+	void toggleActive (bool active) {
+		if (isOpen == active)
+			return;
+		isOpen = active;
+		if (isOpen){
+			GetComponentInChildren<Renderer>().enabled = false;
+			LevelLoader.Instance.LoadedLevel.setCell
+			(position.x,position.y,LevelLoader.Instance.floorId);
+		}else {
+                GetComponentInChildren<Renderer>().enabled = true;
+                LevelLoader.Instance.LoadedLevel.setCell
+                (position.x, position.y, LevelLoader.Instance.doorId);
 		}
 	}
 }
