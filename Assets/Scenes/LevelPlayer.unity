@@ -284,7 +284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelSequences:
-  - level5
+  - micro
+  - level5edit
 --- !u!1 &1494131831
 GameObject:
   m_ObjectHideFlags: 0

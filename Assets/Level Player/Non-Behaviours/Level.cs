@@ -69,9 +69,13 @@ public class Level
 
 	bool canMove(Vector2Int origin, Vector2Int target) {
         bool notColliding = isGround(target.x, target.y) || isKey(target.x, target.y)
-        || isPressurePlate(target);
+        || isPressurePlate(target)||isFinishTile(target);
         return notColliding && insideGrid(target);
 	}
+
+    bool isFinishTile(Vector2Int target){
+        return grid[target.x, target.y] == LevelLoader.Instance.victoryPlateId;
+    }
 
     bool isPressurePlate (Vector2Int target ){
         return grid[target.x, target.y] == LevelLoader.Instance.pressurePlateId;
@@ -123,9 +127,11 @@ public class Level
     }
 
     bool validBoxCollisions (int collisionId) {
-        return collisionId == LevelLoader.Instance.floorId
-        ||
-        collisionId == LevelLoader.Instance.pressurePlateId;
+        return
+        collisionId == LevelLoader.Instance.floorId||
+        collisionId == LevelLoader.Instance.pressurePlateId||
+        collisionId == LevelLoader.Instance.victoryPlateId
+        ;
     }
 
     public bool insideGrid (Vector2Int p) {
