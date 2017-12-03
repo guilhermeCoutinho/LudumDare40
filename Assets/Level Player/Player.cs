@@ -38,7 +38,7 @@ public class Player : MonoBehaviour {
 						onTopOf = LevelLoader.Instance.floorId;
                         Key keyComponnent = Key.getKeyByPosition(currentPosition);
                         if(keyComponnent!=null){
-                            Sound.play(1, (int)Sound.soundEvents.GRAB);
+                            Sound.Instance.Play(2, (int)Sound.soundEvents.GRAB);
                             keyRing.Add(keyComponnent.id);
                             Destroy(keyComponnent.gameObject);
                         }

@@ -38,9 +38,9 @@ public class Enemy : MonoBehaviour {
         if (Physics.Raycast(transform.position,Vector3.forward,out hit,Mathf.Infinity) ){
             if (hit.collider.tag == "PLAYER"){
                 if(direction.x==0&&direction.y==0){
-                    Sound.play(0, (int)Sound.soundEvents.HOLE);
+                    Sound.Instance.Play(0, (int)Sound.soundEvents.HOLE);
                 }else{
-                    Sound.play(0, (int)Sound.soundEvents.DEATH);
+                    Sound.Instance.Play(0, (int)Sound.soundEvents.DEATH);
                 }
                 GameManager.Instance.PlayerDied ();
             }             
