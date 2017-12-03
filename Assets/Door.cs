@@ -85,8 +85,8 @@ public class Door : MonoBehaviour {
 			GetComponentInChildren<Renderer>().enabled = false;
 			LevelLoader.Instance.LoadedLevel.setCell
 			(position.x,position.y,LevelLoader.Instance.floorId);
-			Sound.play(1, (int)Sound.soundEvents.DOOR);
-			if(firstTimeOpen)Sound.play(0, (int)Sound.soundEvents.FANFARE);
+			Sound.Instance.Play(1, (int)Sound.soundEvents.DOOR);
+			if(firstTimeOpen)Sound.Instance.Play(0, (int)Sound.soundEvents.FANFARE);
 			firstTimeOpen=false;
 		}else {
                 GetComponentInChildren<Renderer>().enabled = true;
