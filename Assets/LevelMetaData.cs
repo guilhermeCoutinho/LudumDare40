@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelMetaData : MonoBehaviour {
 	public string fileName;
-	public RequirementsMetaData[] requirements;
+	public List<RequirementsMetaData> requirements;
 
 	public void LoadMetaData () {
 		foreach ( RequirementsMetaData metaData in requirements)

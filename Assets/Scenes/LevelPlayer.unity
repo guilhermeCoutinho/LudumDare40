@@ -205,7 +205,6 @@ GameObject:
   m_Component:
   - component: {fileID: 987654147}
   - component: {fileID: 987654146}
-  - component: {fileID: 987654148}
   m_Layer: 0
   m_Name: _GM
   m_TagString: Untagged
@@ -254,35 +253,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &987654148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 987654145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d41e7479473c9df4fbfcfb5318c322c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fileName: level5
-  requirements:
-  - doorToOpen: {x: 3, y: 9}
-    openAutomatically: 0
-    playerRequiredPosition: {x: 3, y: 8}
-    requirements:
-    - positionInGrid: {x: 2, y: 4}
-      type: 1
-      id: 0
-    - positionInGrid: {x: 2, y: 6}
-      type: 1
-      id: 1
-    - positionInGrid: {x: 0, y: 6}
-      type: 0
-      id: 2
-    - positionInGrid: {x: 0, y: 8}
-      type: 0
-      id: 3
 --- !u!4 &1952393227 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4268515100438852, guid: 67180995064cdf34eab178cff9958f32,
@@ -340,7 +310,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.84
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

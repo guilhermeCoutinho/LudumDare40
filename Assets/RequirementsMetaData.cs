@@ -7,7 +7,7 @@ public class RequirementsMetaData  {
 	public Vector2 doorToOpen ;
 	public bool openAutomatically;
 	public Vector2 playerRequiredPosition;
-	public RequirementMetaData[] requirements;
+	public List<RequirementMetaData> requirements;
 }
 
 [System.Serializable]
