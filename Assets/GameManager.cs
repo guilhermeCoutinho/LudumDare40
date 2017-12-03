@@ -9,20 +9,26 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 
 	int playerLifes;
 	int currentLevel ;
+	bool gameRunning = false;
+
 	void Awake () {
 		levelLoader = GetComponent<LevelLoader> ();
 	}
 
+	void Start () {
+		StartGame (3);
+	}
+
 	void Update () {
+		if (!gameRunning)
+			return;
 		if (Input.GetKeyDown(KeyCode.Backspace)){
-			OpenLevel();
-		}
-		if (Input.GetKeyDown(KeyCode.Return)){
-			OpenNextLevel ();
+			PlayerDied ();
 		}
 	}
 
 	public void StartGame (int lifes) {
+		gameRunning = true;
 		playerLifes = lifes;
 		currentLevel = 0;
 		OpenLevel();
@@ -44,8 +50,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	public void PlayerDied () {
 		playerLifes -- ;
 		if (playerLifes == 0){
-			print ("AGORA VOCE MORREU MESMO LIXO");
+			gameRunning = false;
+			levelLoader.destroyContent ();
 			Time.timeScale = 0;
+			return;
 		}
 		OpenLevel ();
 	}

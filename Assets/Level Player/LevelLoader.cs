@@ -151,7 +151,7 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
                 victoryPlatePrefab.transform.rotation, contentParent);
     }
 
-    void destroyContent () {
+    public void destroyContent () {
         pool.returnAllObjects ();
         wallPool.returnAllObjects () ;
         foreach ( Transform t  in contentParent)
