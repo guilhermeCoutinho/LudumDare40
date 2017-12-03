@@ -284,16 +284,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelSequences:
-  - levelName: level1
-    mapCount: 1
-  - levelName: level2
-    mapCount: 1
-  - levelName: level3
-    mapCount: 1
-  - levelName: level4
-    mapCount: 1
-  - levelName: level5
-    mapCount: 1
+  - level1
+  - level2
+  - level3
+  - level4
+  - level5
 --- !u!1 &1494131831
 GameObject:
   m_ObjectHideFlags: 0

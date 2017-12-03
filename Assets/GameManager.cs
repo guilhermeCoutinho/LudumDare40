@@ -28,6 +28,12 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		if (Input.GetKeyDown(KeyCode.Return)){
 			OpenNextLevel ();
 		}
+		if (Input.GetKeyDown(KeyCode.LeftShift)){
+			GoUpMap ();
+		}
+		if (Input.GetKeyDown(KeyCode.RightShift)){
+			GoDownMap ();
+		}
 	}
 
 	public void StartGame (int lifes) {
@@ -50,10 +56,14 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 
 	public void GoUpMap() {
 		mapIndex ++;
+		levelLoader.LoadMap(
+			levelSequences[currentLevel] + "_" + mapIndex);
 	}
 
 	public void GoDownMap () {
 		mapIndex--;
+		levelLoader.LoadMap(
+			levelSequences[currentLevel] + "_" + mapIndex);
 	}
 	
 	public void PlayerReachedGoal () {
