@@ -68,6 +68,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	[System.Serializable]
 	public class LevelMapBinding {
 		public string levelName ;
-		int mapCount;
+		public int mapCount;
 	}
 }
