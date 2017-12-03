@@ -38,7 +38,6 @@ public class Door : MonoBehaviour {
 		this.position = position;
 		if (doorList == null)
 			doorList = new List<Door>();
-		print ("added " + position);
 		doorList.Add(this);
 	}
 

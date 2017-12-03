@@ -25,6 +25,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		if (Input.GetKeyDown(KeyCode.Backspace)){
 			PlayerDied ();
 		}
+		if (Input.GetKeyDown(KeyCode.Return)){
+			OpenNextLevel ();
+		}
 	}
 
 	public void StartGame (int lifes) {

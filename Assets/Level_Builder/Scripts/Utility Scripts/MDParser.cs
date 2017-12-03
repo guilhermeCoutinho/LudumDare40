@@ -18,10 +18,12 @@ public static class MDParser {
             {   
                 int doorIndex=0;
                 int id=0;
+                int elementIndex=0;
                 data.requirements = new List<RequirementsMetaData>();
                 do
                 {
                     line = streamReader.ReadLine();
+                    Debug.Log(line);
                     if (line != null)
                     {
                         if(line.Split(' ').Length==2){
@@ -31,17 +33,19 @@ public static class MDParser {
                             data.requirements[doorIndex].doorToOpen=new Vector2(x,y);
                             data.requirements[doorIndex].requirements=new List<RequirementMetaData>();
                             doorIndex++;
-                            id =0;
+                            elementIndex =0;
                         }else if(line.Split(' ').Length==3){
                             int a = int.Parse(line.Split(' ')[0]);
                             int b = int.Parse(line.Split(' ')[1]);
                             int c = int.Parse(line.Split(' ')[2]);
                             RequirementsMetaData temp = data.requirements[doorIndex-1];
+                            Debug.Log(temp);
                             temp.requirements.Add(new RequirementMetaData());
-                            temp.requirements[id].positionInGrid=new Vector2(a,b);
-                            temp.requirements[id].type = c;
-                            temp.requirements[id].id = id;
+                            temp.requirements[elementIndex].positionInGrid=new Vector2(a,b);
+                            temp.requirements[elementIndex].type = c;
+                            temp.requirements[elementIndex].id = id;
                             id++;
+                            elementIndex++;
                         }
                     }
                 } while (line != null);
