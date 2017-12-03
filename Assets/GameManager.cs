@@ -8,7 +8,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 
 	int playerLifes;
 	int currentLevel ;
-	int mapIndex;
 	bool gameRunning = false;
 
 	void Awake () {
@@ -44,9 +43,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	}
 
 	void OpenLevel () {
-		mapIndex = 0;
 		levelLoader.LoadMap(
-			levelSequences[currentLevel] + "_" + mapIndex);
+			levelSequences[currentLevel] );
 	}
 
 	public void OpenNextLevel () {
@@ -54,18 +52,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		OpenLevel();
 	}
 
-	public void GoUpMap() {
-		mapIndex ++;
-		levelLoader.LoadMap(
-			levelSequences[currentLevel] + "_" + mapIndex);
-	}
-
-	public void GoDownMap () {
-		mapIndex--;
-		levelLoader.LoadMap(
-			levelSequences[currentLevel] + "_" + mapIndex);
-	}
-	
 	public void PlayerReachedGoal () {
 		OpenNextLevel ();
 	}
