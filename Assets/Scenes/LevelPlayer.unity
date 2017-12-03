@@ -373,37 +373,37 @@ MonoBehaviour:
   resetThis: 1
   wallSpriteBindings:
   - position: {x: 0, y: 0, z: 0, w: 0}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300012, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
   - position: {x: 0, y: 0, z: 0, w: 1}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300010, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
   - position: {x: 0, y: 0, z: 1, w: 0}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300022, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
   - position: {x: 0, y: 0, z: 1, w: 1}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300020, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
   - position: {x: 0, y: 1, z: 0, w: 0}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300014, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
   - position: {x: 0, y: 1, z: 0, w: 1}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300026, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
   - position: {x: 0, y: 1, z: 1, w: 0}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300024, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
   - position: {x: 0, y: 1, z: 1, w: 1}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300036, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
   - position: {x: 1, y: 0, z: 0, w: 0}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300002, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
   - position: {x: 1, y: 0, z: 0, w: 1}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
   - position: {x: 1, y: 0, z: 1, w: 0}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300016, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
   - position: {x: 1, y: 0, z: 1, w: 1}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300034, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
   - position: {x: 1, y: 1, z: 0, w: 0}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300004, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
   - position: {x: 1, y: 1, z: 0, w: 1}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300030, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
   - position: {x: 1, y: 1, z: 1, w: 0}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300032, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
   - position: {x: 1, y: 1, z: 1, w: 1}
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300006, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
 --- !u!1001 &1637758293
 Prefab:
   m_ObjectHideFlags: 0
@@ -459,23 +459,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4268515100438852, guid: 39c66ffd57e626343a3a49d424e205c0,
     type: 2}
   m_PrefabInternal: {fileID: 1637758293}
---- !u!1 &1637758295 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1741306003896906, guid: 39c66ffd57e626343a3a49d424e205c0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1637758293}
---- !u!114 &1637758296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1637758295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 649212239f3ac284ca8c1894ea663bae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beingUsed: 0
 --- !u!4 &1952393227 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4268515100438852, guid: 67180995064cdf34eab178cff9958f32,

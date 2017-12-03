@@ -48,7 +48,6 @@ public class EnemySpawner : MonoBehaviour {
                     }
                 } while (line != null);
                 streamReader.Close();
-
             }
         }
         catch (Exception e)

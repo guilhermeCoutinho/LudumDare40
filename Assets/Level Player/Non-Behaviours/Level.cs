@@ -3,7 +3,7 @@ using System.Collections.Generic;
 public class Level
 {
     int[,] grid;
-    int[,] Grid { get { return grid; } }
+    public int[,] Grid { get { return grid; } }
 
     public int Width  {get { return grid.GetLength(1); } }
     public int Height { get { return grid.GetLength(0); } }

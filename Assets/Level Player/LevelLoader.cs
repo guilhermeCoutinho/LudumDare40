@@ -70,23 +70,32 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
                 GameObject go = pool.getObject();
                 go.transform.name = "Cell_"+ i + "," + j + "_" + value;
                 go.transform.position = getWorldPosition(i, j, rowCount, colCount, 0);
-                if (value == playerId){
-                    InstantiatePlayer (new Vector2Int(i,j),colCount,rowCount);
+			}
+		}
+        for (int i = 0; i < rowCount; i++)
+        {
+            for (int j = 0; j < colCount; j++)
+            {
+                int value = model.Grid[i,j];
+                if (value == playerId)
+                {
+                    InstantiatePlayer(new Vector2Int(i, j), colCount, rowCount);
                 }
-				if (value == wallId)
-					InstantiateWall (new Vector2Int(i, j), colCount, rowCount);
-				if (value == keyId) 
-					InstantiateKey(new Vector2Int(i, j), colCount, rowCount);
+                if (value == wallId)
+                    InstantiateWall(new Vector2Int(i, j), colCount, rowCount);
+                if (value == keyId)
+                    InstantiateKey(new Vector2Int(i, j), colCount, rowCount);
                 if (value == boxId)
                     InstantiateBox(new Vector2Int(i, j), colCount, rowCount);
                 if (value == doorId)
                     InstantiateDoor(new Vector2Int(i, j), colCount, rowCount);
                 if (value == pressurePlateId)
-                    InstantiatePressurePlate (new Vector2Int(i, j), colCount, rowCount);
+                    InstantiatePressurePlate(new Vector2Int(i, j), colCount, rowCount);
                 if (value == victoryPlateId)
                     InstantiateVictoryPlate(new Vector2Int(i, j), colCount, rowCount);
-			}
-		}
+            }
+        }
+
         Camera.main.orthographicSize=rowCount*4/5;
     }
 
@@ -106,6 +115,9 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
 	void InstantiateWall(Vector2Int position, int colCount, int rowCount) {
 		GameObject wallGO = wallPool.getObject();
         wallGO.transform.position = getWorldPosition(position.x, position.y, rowCount, colCount, -2);
+        Wall wallcomponent = wallGO.GetComponent<Wall>();
+        wallcomponent.Initialize(
+            new Vector2Int(position.x,position.y));
 	}
 
 	void InstantiateKey(Vector2Int position, int colCount, int rowCount) {
