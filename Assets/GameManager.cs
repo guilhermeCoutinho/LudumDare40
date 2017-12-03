@@ -27,12 +27,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		if (Input.GetKeyDown(KeyCode.Return)){
 			OpenNextLevel ();
 		}
-		if (Input.GetKeyDown(KeyCode.LeftShift)){
-			GoUpMap ();
-		}
-		if (Input.GetKeyDown(KeyCode.RightShift)){
-			GoDownMap ();
-		}
 	}
 
 	public void StartGame (int lifes) {
