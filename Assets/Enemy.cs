@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(transform.position,Vector3.forward,out hit,Mathf.Infinity) ){
             if (hit.collider.tag == "PLAYER"){
-                print ("MATEI O PLAYER");
+                GameManager.Instance.PlayerDied ();
             }             
         }
     }

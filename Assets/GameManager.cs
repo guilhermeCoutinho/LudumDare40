@@ -6,6 +6,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	public string[] levelSequences;
 	private LevelLoader levelLoader;
 
+
+	int playerLifes;
 	int currentLevel ;
 	void Awake () {
 		levelLoader = GetComponent<LevelLoader> ();
@@ -21,6 +23,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	}
 
 	public void StartGame (int lifes) {
+		playerLifes = lifes;
 		currentLevel = 0;
 		OpenLevel();
 	}
@@ -32,6 +35,19 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	public void OpenNextLevel () {
 		currentLevel ++ ;
 		OpenLevel();
+	}
+	
+	public void PlayerReachedGoal () {
+		OpenNextLevel ();
+	}
+
+	public void PlayerDied () {
+		playerLifes -- ;
+		if (playerLifes == 0){
+			print ("AGORA VOCE MORREU MESMO LIXO");
+			Time.timeScale = 0;
+		}
+		OpenLevel ();
 	}
 
 }

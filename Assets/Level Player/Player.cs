@@ -37,7 +37,7 @@ public class Player : MonoBehaviour {
                             Destroy(keyComponnent.gameObject);
                         }
 					}else if (onTopOf == LevelLoader.Instance.victoryPlateId){
-                        print ("GANHEI PORRA");
+                        GameManager.Instance.PlayerReachedGoal ();
                     }
 				}
 			}
