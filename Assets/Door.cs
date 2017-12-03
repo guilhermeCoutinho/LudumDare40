@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour {
+	public bool firstTimeOpen=true;
 	public bool isOpen;
 	public static List<Door> doorList;
 	Vector2Int playerStandPosition;
@@ -39,6 +40,7 @@ public class Door : MonoBehaviour {
 		if (doorList == null)
 			doorList = new List<Door>();
 		doorList.Add(this);
+		firstTimeOpen=true;
 	}
 
 	public void Setup (RequirementsMetaData requirements , Vector2Int playerPosition,
@@ -83,6 +85,9 @@ public class Door : MonoBehaviour {
 			GetComponentInChildren<Renderer>().enabled = false;
 			LevelLoader.Instance.LoadedLevel.setCell
 			(position.x,position.y,LevelLoader.Instance.floorId);
+			Sound.play(1, (int)Sound.soundEvents.DOOR);
+			if(firstTimeOpen)Sound.play(0, (int)Sound.soundEvents.FANFARE);
+			firstTimeOpen=false;
 		}else {
                 GetComponentInChildren<Renderer>().enabled = true;
                 LevelLoader.Instance.LoadedLevel.setCell
