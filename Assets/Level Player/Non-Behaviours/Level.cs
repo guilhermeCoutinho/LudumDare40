@@ -68,8 +68,9 @@ public class Level
     }
 
 	bool canMove(Vector2Int origin, Vector2Int target) {
-		return isGround(target.x, target.y)||isKey(target.x, target.y) 
-        || isPressurePlate(target) ;
+        bool notColliding = isGround(target.x, target.y) || isKey(target.x, target.y)
+        || isPressurePlate(target);
+        return notColliding && insideGrid(target);
 	}
 
     bool isPressurePlate (Vector2Int target ){
