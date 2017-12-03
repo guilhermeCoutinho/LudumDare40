@@ -7,15 +7,26 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
     const string FILE_NAME = "Level ";
     //public int level;
     public string levelName ;
+
+    public int floorId;
+
     public int playerId;
-	public int wallId;
-	public int floorId;
-	public int keyId;
-    public int boxId;
     public GameObject playerPrefab;
-	public GameObject wallPrefab;
-	public GameObject keyPrefab;
+
+	public int wallId;
+    public GameObject wallPrefab;
+
+	public int keyId;
+    public GameObject keyPrefab;
+
+    public int boxId;
     public GameObject boxPrefab;
+
+    public int doorId;
+    public GameObject doorPrefab;
+    
+    public int pressurePlateId;
+    public GameObject pressurePlatePrefab;
 
     public ObjectPool pool;
 
@@ -27,6 +38,7 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
     void Start ()
     {
         LoadLevel();
+        GetComponent<LevelMetaData>().LoadMetaData ();
     }
 
     void LoadLevel ()
@@ -59,6 +71,8 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
 					InstantiateKey(new Vector2Int(i, j), colCount, rowCount);
                 if (value == boxId)
                     InstantiateBox(new Vector2Int(i, j), colCount, rowCount);
+                if (value == doorId)
+                    InstantiateDoor(new Vector2Int(i, j), colCount, rowCount);
 			}
 		}
     }
@@ -93,6 +107,24 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
                 boxPrefab.transform.rotation);
         Box boxComponnent = boxGO.GetComponent<Box>();
         boxComponnent.Initialize(position);
+    }
+    
+    void InstantiateDoor(Vector2Int position, int colCount, int rowCount)
+    {
+        GameObject doorGO = Instantiate(doorPrefab,
+                new Vector3(position.y - (colCount - 1) / 2f, (rowCount - 1 - position.x) - rowCount / 2f, -2),
+                doorPrefab.transform.rotation);
+        Door doorComponnent = doorGO.GetComponent<Door>();
+        doorComponnent.Initialize(position);
+    }
+
+    void InstantiatePressurePlate(Vector2Int position, int colCount, int rowCount)
+    {
+        GameObject pressurePlateGO = Instantiate(pressurePlatePrefab,
+                new Vector3(position.y - (colCount - 1) / 2f, (rowCount - 1 - position.x) - rowCount / 2f, -2),
+                pressurePlatePrefab.transform.rotation);
+        PressurePlate pressureComponent = pressurePlateGO.GetComponent<PressurePlate>();
+        pressureComponent.Initialize(position);
     }
 
 }

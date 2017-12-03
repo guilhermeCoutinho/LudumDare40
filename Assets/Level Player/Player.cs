@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
     Level level;
     public Vector2Int currentPosition;
 	public int onTopOf;
-    List<int> keyRing;
+    public List<int> keyRing;
 
     void Start() {
         level = LevelLoader.Instance.LoadedLevel;

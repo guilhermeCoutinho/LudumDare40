@@ -8,7 +8,7 @@ public class Level
     int Width  {get { return grid.GetLength(1); } }
     int Height { get { return grid.GetLength(0); } }
 
-    Player player;
+    public Player player;
     KeyboardMapper keyboard;
 
     public Level(int rowCount, int colCount)

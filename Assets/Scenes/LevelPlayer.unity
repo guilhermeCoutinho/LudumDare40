@@ -205,6 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 987654147}
   - component: {fileID: 987654146}
+  - component: {fileID: 987654148}
   m_Layer: 0
   m_Name: _GM
   m_TagString: Untagged
@@ -224,16 +225,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: level5
-  playerId: 4
-  wallId: 0
   floorId: 2
-  keyId: 1
-  boxId: 3
+  playerId: 4
   playerPrefab: {fileID: 1741306003896906, guid: 1e1ee396a72037341975746f9ccd1524,
     type: 2}
+  wallId: 0
   wallPrefab: {fileID: 1741306003896906, guid: 39c66ffd57e626343a3a49d424e205c0, type: 2}
+  keyId: 1
   keyPrefab: {fileID: 1741306003896906, guid: c0582b64fe29fd548b349920455c4e10, type: 2}
+  boxId: 3
   boxPrefab: {fileID: 1741306003896906, guid: 3722491f602506e439370fd1aeb34956, type: 2}
+  doorId: 5
+  doorPrefab: {fileID: 1741306003896906, guid: b49ddfc6bca46954198dab671800134b, type: 2}
+  pressurePlateId: 0
+  pressurePlatePrefab: {fileID: 0}
   pool: {fileID: 792209904}
 --- !u!4 &987654147
 Transform:
@@ -248,6 +253,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &987654148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 987654145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41e7479473c9df4fbfcfb5318c322c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: level5
+  requirements:
+  - doorToOpen: {x: 3, y: 8}
+    openAutomatically: 0
+    playerRequiredPosition: {x: 3, y: 7}
+    requirements:
+    - positionInGrid: {x: 0, y: 6}
+      type: 0
+      id: 0
 --- !u!4 &1952393227 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4268515100438852, guid: 67180995064cdf34eab178cff9958f32,

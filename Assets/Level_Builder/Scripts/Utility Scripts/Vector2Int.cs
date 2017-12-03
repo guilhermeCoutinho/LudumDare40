@@ -15,6 +15,11 @@ public class Vector2Int {
         this.y = y;
     }
 
+	public Vector2Int (Vector2 v2) {
+		this.x = (int)v2.x;
+		this.y = (int)v2.y;
+	}
+
     public void print ()
     {
         UnityEngine.Debug.Log(x + "," + y);
@@ -34,6 +39,7 @@ public class Vector2Int {
 			return false;
 		}
 	}
+
 	public static Vector2Int operator +(Vector2Int v1, Vector2Int v2) {
 		return new Vector2Int(v1.x + v2.x, v1.y + v2.y);
 	}
