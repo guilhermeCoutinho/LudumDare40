@@ -33,7 +33,6 @@ public class Enemy : MonoBehaviour {
                 print ("MATEI O PLAYER");
             }             
         }
-        Debug.DrawRay(transform.position + direction.ToVector3(), Vector3.forward, Color.black);
     }
 
     void flip () {
@@ -42,20 +41,26 @@ public class Enemy : MonoBehaviour {
 
     void moveEnemy () {
         RaycastHit hit;
-
+        bool shouldFlip = !LevelLoader.Instance.LoadedLevel.insideGrid(position + direction);
+        
         if (Physics.Raycast(transform.position + direction.ToVector3(), Vector3.forward, out hit, Mathf.Infinity))
         {
-            if (hit.collider.tag == "WALL") {
-                flip();
+            if (hit.collider.tag == "WALL" || hit.collider.tag == "BOX") {
+                shouldFlip = true;
              }
-            else if (hit.collider.tag == "BOX")
-            {
-                flip();
-            }
         }
-        else if (!LevelLoader.Instance.LoadedLevel.insideGrid(position+direction)){
-            flip();
+
+        if (shouldFlip){
+            flip ();
+            bool outOfBounds = !LevelLoader.Instance.LoadedLevel.insideGrid(position + direction);
+            if (outOfBounds)
+                return;
+            RaycastHit hit2;
+            if (Physics.Raycast(transform.position + direction.ToVector3(), Vector3.forward, out hit2, Mathf.Infinity))
+                if (hit2.collider.tag == "WALL" || hit2.collider.tag == "BOX")
+                   return;
         }
+
         position += direction;
         transform.position += direction.ToVector3();
     }

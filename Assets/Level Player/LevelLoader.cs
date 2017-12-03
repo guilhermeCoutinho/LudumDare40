@@ -5,8 +5,6 @@ using UnityEngine;
 public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
 
     const string FILE_NAME = "Level ";
-    //public int level;
-    public string levelName ;
 
     public int floorId;
 
