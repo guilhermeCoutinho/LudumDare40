@@ -27,7 +27,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		if (!gameRunning)
 			return;
 		if (Input.GetKeyDown(KeyCode.Backspace)){
-			Sound.Instance.Play(0, (int)Sound.soundEvents.RESET);
+			Sound.Instance.Play(3, (int)Sound.soundEvents.RESET);
 			PlayerDied ();
 		}
 		if (Input.GetKeyDown(KeyCode.Return)){
@@ -50,7 +50,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		timer.StartTimer(levelSequences[currentLevel].timeToComplete , OnTimeRunOunt);
 		//Sound.Instance.PlayBGM(0);
 		Sound.Instance.Play(0, (int)Sound.soundEvents.START);
-		Sound.Instance.Play(0, (int)Sound.soundEvents.START);
+		Sound.Instance.Play(3, (int)Sound.soundEvents.START);
 	}
 
 	void OnTimeRunOunt () {
@@ -68,14 +68,14 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	}
 
 	public void PlayerReachedGoal () {
-		Sound.Instance.Play(0, (int)Sound.soundEvents.FINISH);
+		Sound.Instance.Play(3, (int)Sound.soundEvents.FINISH);
 		OpenNextLevel ();
 	}
 
 	public void PlayerDied () {
 		playerLifes -- ;
 		if (playerLifes == 0){
-			Sound.Instance.Play(0, (int)Sound.soundEvents.GAMEOVER);
+			Sound.Instance.Play(3, (int)Sound.soundEvents.GAMEOVER);
 			gameOverScreen.enabled=true;
 			gameOverScreen.BlinkScreen();
 			gameRunning = false;
