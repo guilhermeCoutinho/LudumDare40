@@ -24,7 +24,7 @@ public class Player : MonoBehaviour {
 	void Update ()
     {
 
-        if (!GameManager.Instance.gameRunning)
+        if ( GameManager.Instance.gameState != GameManager.GameState.GAME_RUNNING)
             return ;
 
         if(Input.GetKeyDown(KeyCode.Escape)){

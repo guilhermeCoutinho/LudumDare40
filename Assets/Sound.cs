@@ -44,6 +44,7 @@ public class Sound : SingletonMonoBehaviour<Sound> {
 	}
 
 	public void Play(int layer, int sound){
+		return;
 		switch (sound){
 			case 0: //pushbox
 			layers[layer].clip = sounds[30];
