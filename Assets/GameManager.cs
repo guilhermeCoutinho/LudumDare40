@@ -24,7 +24,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	}
 
 	void Update () {
-		Debug.Log(playerLifes);
 		if (!gameRunning)
 			return;
 		if (Input.GetKeyDown(KeyCode.Backspace)){

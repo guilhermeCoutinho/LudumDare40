@@ -8,5 +8,5 @@ public class LevelData
     public string name;
     public int timeToComplete;
     public bool showOnlyAdjacentToPlayerKeys;
-    public bool hideOverlayWhenPlayerMoves;
+    public bool shouldHide;
 }

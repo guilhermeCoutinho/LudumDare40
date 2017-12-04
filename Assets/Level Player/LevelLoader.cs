@@ -63,7 +63,8 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
                     if (model.Grid[i,j] == floorId){
                         GameObject go = keyBoardOverlay.getObject();
                         go.transform.position = getWorldPosition(i,j,model.Height,model.Width,-2);
-                        go.GetComponent<KeyboardKey>().UpdateText(new Vector2Int(i-1,j-1));
+                        go.GetComponent<KeyboardKey>().UpdateText(new Vector2Int(i-1,j-1),
+                        model.levelInfo.shouldHide );
                     }
                 }
             }
@@ -76,7 +77,8 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
                 int x = model.player.currentPosition.x + adjacentTiles[i].x;
                 int y = model.player.currentPosition.y + adjacentTiles[i].y;
                 go.transform.position = getWorldPosition(x, y, model.Height, model.Width, -2);
-                go.GetComponent<KeyboardKey>().UpdateText(new Vector2Int(x - 1, y - 1));
+                go.GetComponent<KeyboardKey>().UpdateText(new Vector2Int(x - 1, y - 1),
+                model.levelInfo.shouldHide);
             }
         }
     }
@@ -133,8 +135,6 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
                     InstantiateVictoryPlate(new Vector2Int(i, j), colCount, rowCount);
             }
         }
-
-        Camera.main.orthographicSize=rowCount*4/5;
     }
 
     public Vector3 getWorldPosition(int i, int j, int rowCount, int colCount, int z){

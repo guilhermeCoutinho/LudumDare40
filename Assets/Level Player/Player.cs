@@ -13,13 +13,13 @@ public class Player : MonoBehaviour {
     void Start() {
         level = LevelLoader.Instance.LoadedLevel;
         keyRing = new List<int>();
+        SmoothFollow.Instance.target = gameObject;
 	}
 
 	public void Initialize(Vector2Int pos, int startingId) {
 		currentPosition = pos;
 		onTopOf = startingId;
 	}
-
 
 	void Update ()
     {
