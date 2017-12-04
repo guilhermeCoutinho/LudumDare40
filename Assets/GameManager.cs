@@ -6,9 +6,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	public string[] levelSequences;
 	private LevelLoader levelLoader;
 
-	int playerLifes;
-	int currentLevel ;
-	bool gameRunning = false;
+	public int playerLifes;
+	public int currentLevel ;
+	public bool gameRunning = false;
 
 	void Awake () {
 		levelLoader = GetComponent<LevelLoader> ();
@@ -40,6 +40,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	void OpenLevel () {
 		levelLoader.LoadMap(
 			levelSequences[currentLevel] );
+		StartCoroutine(LevelScreen.Instance.BlinkScreen());
 		Sound.Instance.PlayBGM(0);
 		Sound.Instance.Play(1, (int)Sound.soundEvents.START);
 	}
