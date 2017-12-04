@@ -6,6 +6,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	public string[] levelSequences;
 	private LevelLoader levelLoader;
 
+	public LifeCounter[] lifeCounters;
 	public int playerLifes;
 	public int currentLevel ;
 	public bool gameRunning = false;
@@ -15,7 +16,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	}
 
 	void Start () {
-		StartGame (3);
+		StartGame (5);
 	}
 
 	void Update () {
@@ -35,6 +36,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		playerLifes = lifes;
 		currentLevel = 0;
 		OpenLevel();
+        SetupLifeCounters(lifes);
 	}
 
 	void OpenLevel () {
@@ -69,5 +71,12 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 			return;
 		}
 		OpenLevel ();
+	}
+
+	void SetupLifeCounters (int n) {
+		foreach (LifeCounter LifeCounter in lifeCounters)
+		{
+			LifeCounter.SetupLifeCounter(n);
+		}
 	}
 }

@@ -12,7 +12,7 @@ public class LevelMetaData : MonoBehaviour {
 		foreach ( RequirementsMetaData metaData in requirements)
 		{
 			Door doorComponent = Door.getDoorByPosition ( new Vector2Int( metaData.doorToOpen) );
-			doorComponent.Setup(metaData , new Vector2Int (metaData.playerRequiredPosition ),
+			doorComponent.Setup(metaData ,
 			metaData.openAutomatically);
 			foreach (RequirementMetaData data in metaData.requirements){
 				if(data.type ==0){

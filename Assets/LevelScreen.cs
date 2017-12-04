@@ -21,9 +21,7 @@ public class LevelScreen : SingletonMonoBehaviour<LevelScreen> {
 		foreach(GameObject g in partsOfScreen){
 			g.SetActive(true);
 		}
-		Debug.Log("blinking");
 		yield return new WaitForSeconds(tempo); //black magic
-		Debug.Log("blinking out");
 		foreach(GameObject g in partsOfScreen){
 			g.SetActive(false);
 		}

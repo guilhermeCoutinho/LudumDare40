@@ -167,7 +167,7 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
 
     void InstantiateVictoryPlate(Vector2Int position, int colCount, int rowCount)
     {
-        GameObject victoryPlateGO = Instantiate(victoryPlatePrefab,
+       Instantiate(victoryPlatePrefab,
                 getWorldPosition(position.x, position.y, rowCount, colCount, -1),
                 victoryPlatePrefab.transform.rotation, contentParent);
     }
