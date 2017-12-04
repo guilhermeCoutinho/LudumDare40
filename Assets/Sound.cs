@@ -36,7 +36,7 @@ public class Sound : SingletonMonoBehaviour<Sound> {
 
 	public void PlayBGM(int bgmId){
 		BGMLayer.clip = bgms[bgmId];
-		BGMLayer.Play();
+		BGMLayer.volume = 0.5f;
 	}
 
 	public void StopBGM(){
@@ -46,13 +46,15 @@ public class Sound : SingletonMonoBehaviour<Sound> {
 	public void Play(int layer, int sound){
 		switch (sound){
 			case 0: //pushbox
+			layers[layer].clip = sounds[30];
+			layers[layer].Play();
 			break;
 			case 1: //steps
 			layers[layer].clip = sounds[4];
 			layers[layer].Play();
 			break;
 			case 2: //grab
-			layers[layer].clip = sounds[2];
+			layers[layer].clip = sounds[3];
 			layers[layer].Play();
 			break;
 			case 3: //fanfare
@@ -60,18 +62,20 @@ public class Sound : SingletonMonoBehaviour<Sound> {
 			case 4: //door
 			break;
 			case 5: //start
-			layers[layer].clip = sounds[6];
-			layers[layer].Play();
+			layers[1].clip = sounds[28];
+			layers[1].Play();
+			layers[0].clip = bgms[0];
+			layers[0].PlayDelayed(1.2f);
 			break;
 			case 6: //finish			
 			break;
 			case 7: //death
-			layers[layer].clip = sounds[1];
+			layers[layer].clip = sounds[6];
 			layers[layer].Play();
 			break;
 			case 8: //reset
-			layers[layer].clip = sounds[1];
-			layers[layer].Play();
+			//layers[layer].clip = sounds[1];
+			//layers[layer].Play();
 			break;
 			case 9: //hole
 			layers[layer].clip = sounds[1];

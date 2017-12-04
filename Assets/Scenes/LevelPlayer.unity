@@ -835,6 +835,10 @@ MonoBehaviour:
     timeToComplete: 10
     showOnlyAdjacentToPlayerKeys: 0
     shouldHide: 0
+  - name: level5
+    timeToComplete: 100
+    showOnlyAdjacentToPlayerKeys: 0
+    shouldHide: 0
   levelScreen: {fileID: 1979424308}
   gameOverScreen: {fileID: 1455809253}
   lifeCounters:
@@ -842,7 +846,7 @@ MonoBehaviour:
   - {fileID: 2063784671}
   playerLifes: 0
   currentLevel: 0
-  gameRunning: 0
+  gameRunning: 1
 --- !u!114 &987654150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -866,6 +870,26 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 89a6c65d706ad5b4292cfdcdd9edf2e1, type: 3}
   - {fileID: 8300000, guid: 164c2b95f987b924e83146fd168654eb, type: 3}
   - {fileID: 8300000, guid: 99f19939d1a48fe4c99f59df597f9cee, type: 3}
+  - {fileID: 8300000, guid: da3e8ec6c5e647d42bfd3bafe92d13f5, type: 3}
+  - {fileID: 8300000, guid: 7a54d5b86ec1aef49908a30ef5f5fe2a, type: 3}
+  - {fileID: 8300000, guid: 0ff16e7fbdf1e4444870262b97c06bd7, type: 3}
+  - {fileID: 8300000, guid: 46b391475a065ac4caeb5956c0323e93, type: 3}
+  - {fileID: 8300000, guid: 3c928a99d5eddb24eb03e83dca9c1e91, type: 3}
+  - {fileID: 8300000, guid: f6b7335e683d86f498fbb3953270d259, type: 3}
+  - {fileID: 8300000, guid: de12120162dfad44e81a5fe120272d4f, type: 3}
+  - {fileID: 8300000, guid: e9aa8525a1d1bed43b68546515829888, type: 3}
+  - {fileID: 8300000, guid: 16f1c132b20c6594ea539ee0bde71adc, type: 3}
+  - {fileID: 8300000, guid: 75568608f6bf1774fa91731449e02f71, type: 3}
+  - {fileID: 8300000, guid: 4a1231cd5b145864495ea7a5b8c96ac8, type: 3}
+  - {fileID: 8300000, guid: 8ec399b55c9c20d4890e523ce8263413, type: 3}
+  - {fileID: 8300000, guid: 79549f7b54c978844b5b721a56ce0e6c, type: 3}
+  - {fileID: 8300000, guid: e4b0d914e07c0bd46b6b459794b5b74b, type: 3}
+  - {fileID: 8300000, guid: a4beef7c09c8f6a47900c7b61738aa7b, type: 3}
+  - {fileID: 8300000, guid: 6ff8a72321c69294ea8cea45eba00650, type: 3}
+  - {fileID: 8300000, guid: caf113e651a4c014995e0ac552b5fbbb, type: 3}
+  - {fileID: 8300000, guid: ead2efefd7dfa524c9e799907d2370c0, type: 3}
+  - {fileID: 8300000, guid: 71e07eab0a81c42459ba29b489b619f8, type: 3}
+  - {fileID: 8300000, guid: b15baecfd6bb7374794012f1adf595a5, type: 3}
   bgms:
   - {fileID: 8300000, guid: a6057fb1e18c3d74d9b4f08b4cefb826, type: 3}
   layers:

@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour {
                 if(direction.x==0&&direction.y==0){
                     Sound.Instance.Play(0, (int)Sound.soundEvents.HOLE);
                 }else{
-                    Sound.Instance.Play(0, (int)Sound.soundEvents.DEATH);
+                    //Sound.Instance.Play(0, (int)Sound.soundEvents.DEATH);
                 }
                 GameManager.Instance.PlayerDied ();
             }             

@@ -51,8 +51,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		levelScreen.gameObject.SetActive(true);
 		StartCoroutine(levelScreen.BlinkScreen());
 		timer.StartTimer(levelSequences[currentLevel].timeToComplete , OnTimeRunOunt);
-		Sound.Instance.PlayBGM(0);
-		Sound.Instance.Play(1, (int)Sound.soundEvents.START);
+		//Sound.Instance.PlayBGM(0);
+		Sound.Instance.Play(0, (int)Sound.soundEvents.START);
+		Sound.Instance.Play(0, (int)Sound.soundEvents.START);
 	}
 
 	void OnTimeRunOunt () {

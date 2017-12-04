@@ -94,8 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464cb3c239e230241bfedc330a4c61d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hole: {fileID: 21300004, guid: 000511de431990a4f865889cbfafb502, type: 3}
-  enemy: {fileID: 21300016, guid: 56a2195a11018c94f9b8f2eee485fd30, type: 3}
+  hole: {fileID: 21300004, guid: 169498a37a406c749aaaf655bde8fd52, type: 3}
+  enemy: {fileID: 21300016, guid: f9796bae7a3c6f54ca58a9565c3acb8f, type: 3}
   interval: 0.5
   sum: 0
 --- !u!212 &212697212730995810
