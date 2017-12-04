@@ -46,8 +46,12 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	}
 
 	public void OpenNextLevel () {
-		currentLevel ++ ;
-		OpenLevel();
+		try{
+			currentLevel ++ ;
+			OpenLevel();
+		}catch(System.IndexOutOfRangeException){
+			Debug.LogError("VICTORY");
+		}
 	}
 
 	public void PlayerReachedGoal () {
@@ -61,7 +65,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 			Sound.Instance.Play(0, (int)Sound.soundEvents.GAMEOVER);
 			gameRunning = false;
 			levelLoader.destroyContent ();
-			Time.timeScale = 0;
+			StartGame(3);
 			return;
 		}
 		OpenLevel ();
