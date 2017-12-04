@@ -96,5 +96,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	public class LevelData {
 		public string name;
 		public int timeToComplete;
+		public bool showOnlyAdjacentToPlayerKeys;
+		public bool hideOverlayWhenPlayerMoves;
 	}
 }
