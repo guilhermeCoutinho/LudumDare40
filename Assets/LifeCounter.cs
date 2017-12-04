@@ -29,5 +29,8 @@ public class LifeCounter : MonoBehaviour {
 		for (int i=transform.childCount; i < maxLifes;i++){
 			Instantiate (lifeIconPrefab,transform);
 		}
+		for(int i=0;i<transform.childCount;i++){
+            transform.GetChild(i).GetComponent<RawImage>().enabled = true;
+		}
 	}
 }
