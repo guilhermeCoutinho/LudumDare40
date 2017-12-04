@@ -46,6 +46,11 @@ public class PressurePlate : MonoBehaviour {
 		hasSomethingOnTop = newState;
 		GetComponentInChildren<SpriteRenderer>().sprite =
 		hasSomethingOnTop ? pressuredSprite : releasedSprite;
+		if(hasSomethingOnTop){
+			Sound.Instance.Play(3, (int)Sound.soundEvents.BUTTOND);
+		}else{
+			Sound.Instance.Play(3, (int)Sound.soundEvents.BUTTONU);
+		}
     }
 
 }
