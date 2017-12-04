@@ -29,4 +29,8 @@ public class KeyboardMapper  {
 		}
 		return null;
 	}
+    public static char getCharInPosition(Vector2Int positionInMap)
+    {
+		return keyboardMapBrazil[positionInMap.x][positionInMap.y];
+    }
 }

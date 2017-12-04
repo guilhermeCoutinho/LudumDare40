@@ -44,7 +44,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	}
 
 	void OpenLevel () {
-		levelLoader.LoadMap(levelSequences[currentLevel].name );
+		levelLoader.LoadMap(levelSequences[currentLevel] );
 		levelScreen.gameObject.SetActive(true);
 		StartCoroutine(levelScreen.BlinkScreen());
 		timer.StartTimer(levelSequences[currentLevel].timeToComplete , OnTimeRunOunt);
@@ -88,12 +88,5 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		{
 			LifeCounter.SetupLifeCounter(n);
 		}
-	}
-	[System.Serializable]
-	public class LevelData {
-		public string name;
-		public int timeToComplete;
-		public bool showOnlyAdjacentToPlayerKeys;
-		public bool hideOverlayWhenPlayerMoves;
 	}
 }

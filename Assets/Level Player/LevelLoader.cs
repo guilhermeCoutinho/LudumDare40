@@ -34,6 +34,7 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
 
     public ObjectPool pool;
     public ObjectPool wallPool;
+    public ObjectPool keyBoardOverlay;
 
     public Sprite borderSprite;
 
@@ -42,15 +43,42 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
     {
         get { return model; }
     }
-    public void LoadMap (string levelName)
+    public void LoadMap (LevelData levelData )
     {
         destroyContent ();
-        this.MapName = levelName;
+        this.MapName = levelData.name;
         LoadMap();
         LevelMetaData metadata = gameObject.AddComponent(typeof(LevelMetaData)  ) as LevelMetaData;
-        MDParser.Parse(levelName, ref metadata);
+        MDParser.Parse(levelData.name, ref metadata);
         metadata.LoadMetaData();
-        GetComponent<EnemySpawner>().SpawnEnemies(levelName,model.Height ,model.Width);
+        GetComponent<EnemySpawner>().SpawnEnemies(levelData.name,model.Height ,model.Width);
+        model.levelInfo = levelData;
+        DisplayOverlays ();
+    }
+
+    void DisplayOverlays () {
+        if (!model.levelInfo.showOnlyAdjacentToPlayerKeys){
+            for (int i=0;i<model.Height;i++){
+                for (int j=0;j<model.Width;j++){
+                    if (model.Grid[i,j] == floorId){
+                        GameObject go = keyBoardOverlay.getObject();
+                        go.transform.position = getWorldPosition(i,j,model.Height,model.Width,-2);
+                        go.GetComponent<KeyboardKey>().UpdateText(new Vector2Int(i-1,j-1));
+                    }
+                }
+            }
+        }
+        else {
+            Vector2Int[] adjacentTiles = {Vector2Int.up,Vector2Int.down,
+                Vector2Int.right,Vector2Int.left};
+            for (int i = 0 ; i <adjacentTiles.Length;i++){
+                GameObject go = keyBoardOverlay.getObject();
+                int x = model.player.currentPosition.x + adjacentTiles[i].x;
+                int y = model.player.currentPosition.y + adjacentTiles[i].y;
+                go.transform.position = getWorldPosition(x, y, model.Height, model.Width, -2);
+                go.GetComponent<KeyboardKey>().UpdateText(new Vector2Int(x - 1, y - 1));
+            }
+        }
     }
 
     void LoadMap ()
@@ -175,6 +203,7 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
     public void destroyContent () {
         pool.returnAllObjects ();
         wallPool.returnAllObjects () ;
+        keyBoardOverlay.returnAllObjects();
         foreach ( Transform t  in contentParent)
         {
             Destroy (t.gameObject);

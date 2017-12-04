@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 public class Level
 {
+    public LevelData levelInfo;
     int[,] grid;
     public int[,] Grid { get { return grid; } }
 
