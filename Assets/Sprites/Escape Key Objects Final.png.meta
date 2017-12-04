@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: ecc7dc84041c36b4c9028d7826dbb679
-timeCreated: 1512340827
+guid: 000511de431990a4f865889cbfafb502
+timeCreated: 1512347921
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Escape Key Objects Final_0
-    21300002: Escape Key Objects Final_1
-    21300004: Escape Key Objects Final_2
-    21300006: Escape Key Objects Final_3
-    21300008: Escape Key Objects Final_4
-    21300010: Escape Key Objects Final_5
+    21300000: Escape Key Objects Final 1_0
+    21300002: Escape Key Objects Final 1_1
+    21300004: Escape Key Objects Final 1_2
+    21300006: Escape Key Objects Final 1_3
+    21300008: Escape Key Objects Final 1_4
+    21300010: Escape Key Objects Final 1_5
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -102,7 +102,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Escape Key Objects Final_0
+      name: Escape Key Objects Final 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -116,7 +116,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Escape Key Objects Final_1
+      name: Escape Key Objects Final 1_1
       rect:
         serializedVersion: 2
         x: 30
@@ -130,7 +130,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Escape Key Objects Final_2
+      name: Escape Key Objects Final 1_2
       rect:
         serializedVersion: 2
         x: 60
@@ -144,7 +144,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Escape Key Objects Final_3
+      name: Escape Key Objects Final 1_3
       rect:
         serializedVersion: 2
         x: 0
@@ -158,7 +158,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Escape Key Objects Final_4
+      name: Escape Key Objects Final 1_4
       rect:
         serializedVersion: 2
         x: 30
@@ -172,7 +172,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Escape Key Objects Final_5
+      name: Escape Key Objects Final 1_5
       rect:
         serializedVersion: 2
         x: 60
