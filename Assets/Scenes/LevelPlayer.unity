@@ -713,6 +713,10 @@ MonoBehaviour:
     timeToComplete: 10
     showOnlyAdjacentToPlayerKeys: 0
     shouldHide: 0
+  - name: level5
+    timeToComplete: 100
+    showOnlyAdjacentToPlayerKeys: 0
+    shouldHide: 0
   levelScreen: {fileID: 1979424308}
   gameOverScreen: {fileID: 1455809253}
   lifeCounters:
@@ -720,7 +724,7 @@ MonoBehaviour:
   - {fileID: 2063784671}
   playerLifes: 0
   currentLevel: 0
-  gameRunning: 0
+  gameRunning: 1
 --- !u!114 &987654150
 MonoBehaviour:
   m_ObjectHideFlags: 0
