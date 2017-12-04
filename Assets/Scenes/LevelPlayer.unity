@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c41c6f297b3f6142bdfe7a4c3cedc10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  borderAroundLevel: 2
+  borderAroundLevel: 8
   contentParent: {fileID: 1494131832}
   floorId: 2
   playerId: 4
