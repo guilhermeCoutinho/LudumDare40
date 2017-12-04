@@ -1002,16 +1002,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1483369229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
   m_LocalPosition: {x: 299, y: 168, z: 0}
   m_LocalScale: {x: 0.7475, y: 0.7475, z: 0.7475}
-||||||| merged common ancestors
-  m_LocalPosition: {x: 324.5, y: 182.5, z: 0}
-  m_LocalScale: {x: 0.81125, y: 0.81125, z: 0.81125}
-=======
-  m_LocalPosition: {x: 308, y: 231, z: 0}
-  m_LocalScale: {x: 0.77, y: 0.77, z: 0.77}
->>>>>>> 6f3ebaaafef3fbf8b2b49215ae70ef680f8b3cff
   m_Children:
   - {fileID: 1455809250}
   - {fileID: 745948490}
