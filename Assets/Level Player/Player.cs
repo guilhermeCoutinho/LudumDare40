@@ -23,6 +23,10 @@ public class Player : MonoBehaviour {
 
 	void Update ()
     {
+
+        if (!GameManager.Instance.gameRunning)
+            return ;
+
         if(Input.GetKeyDown(KeyCode.Escape)){
             escapeKey = true;
         }
