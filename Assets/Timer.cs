@@ -16,6 +16,11 @@ public class Timer : MonoBehaviour {
 			StopCoroutine(timerCoroutine);
 		timerCoroutine = StartCoroutine(countDown(time));
 	}
+	
+	public void StopTimer () {
+        if (timerCoroutine != null)
+            StopCoroutine(timerCoroutine);
+	}
 
 	IEnumerator countDown (int totalTimer) {
         int currentTime = totalTimer;
