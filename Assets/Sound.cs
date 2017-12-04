@@ -31,7 +31,9 @@ public class Sound : SingletonMonoBehaviour<Sound> {
 		DEATH,
 		RESET,
 		HOLE,
-		GAMEOVER
+		GAMEOVER,
+		BUTTOND,
+		BUTTONU
 	}
 
 	public void PlayBGM(int bgmId){
@@ -82,6 +84,11 @@ public class Sound : SingletonMonoBehaviour<Sound> {
 			layers[layer].Play();
 			break;
 			case 10: //gameover
+			break;
+			case (int)soundEvents.BUTTOND:
+			
+			break;
+			case (int)soundEvents.BUTTONU:
 			break;
 			default:
 				Debug.LogError("UNIDENTIFIED SOUND ID " + sound + "ON LAYER" + layer);
