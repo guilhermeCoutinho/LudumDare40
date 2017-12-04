@@ -6,6 +6,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	Timer timer;
 	public LevelData[] levelSequences;
 	public LevelScreen levelScreen ;
+	public GameOverScreen gameOverScreen;
 	private LevelLoader levelLoader;
 
 	public LifeCounter[] lifeCounters;
@@ -75,9 +76,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		playerLifes -- ;
 		if (playerLifes == 0){
 			Sound.Instance.Play(0, (int)Sound.soundEvents.GAMEOVER);
+			gameOverScreen.enabled=true;
+			gameOverScreen.BlinkScreen();
 			gameRunning = false;
 			levelLoader.destroyContent ();
-			StartGame(3);
+			StartGame(5);
 			return;
 		}
 		OpenLevel ();
