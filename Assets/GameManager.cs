@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : SingletonMonoBehaviour<GameManager> {
-	public string[] levelSequences;
+	Timer timer;
+	public LevelData[] levelSequences;
 	public LevelScreen levelScreen ;
 	private LevelLoader levelLoader;
 
@@ -14,6 +15,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 
 	void Awake () {
 		levelLoader = GetComponent<LevelLoader> ();
+		timer = GetComponent<Timer>();
 	}
 
 	void Start () {
@@ -41,11 +43,17 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	}
 
 	void OpenLevel () {
-		levelLoader.LoadMap(levelSequences[currentLevel] );
+		levelLoader.LoadMap(levelSequences[currentLevel].name );
 		levelScreen.gameObject.SetActive(true);
 		StartCoroutine(levelScreen.BlinkScreen());
+		timer.StartTimer(levelSequences[currentLevel].timeToComplete , OnTimeRunOunt);
 		Sound.Instance.PlayBGM(0);
 		Sound.Instance.Play(1, (int)Sound.soundEvents.START);
+	}
+
+	void OnTimeRunOunt () {
+		print ("Time runout");
+		PlayerDied();
 	}
 
 	public void OpenNextLevel () {
@@ -79,5 +87,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		{
 			LifeCounter.SetupLifeCounter(n);
 		}
+	}
+	[System.Serializable]
+	public class LevelData {
+		public string name;
+		public int timeToComplete;
 	}
 }
