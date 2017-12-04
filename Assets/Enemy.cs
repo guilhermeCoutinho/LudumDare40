@@ -20,12 +20,12 @@ public class Enemy : MonoBehaviour {
         int deltaX = Mathf.Clamp ( target.x - origin.x , -1 , 1 );
         int deltaY = Mathf.Clamp ( target.y - origin.y , -1 , 1);
         direction = new Vector2Int (deltaX,deltaY);
-/*        if(direction.x==0&&direction.y==0){
+        if(direction.x==0&&direction.y==0){
             GetComponentInChildren<SpriteRenderer>().sprite=hole;
         }else{
             GetComponentInChildren<SpriteRenderer>().sprite=enemy;
         }
-*/    }
+    }
 
     void Update () {
         sum += Time.deltaTime;

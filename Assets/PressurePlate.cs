@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PressurePlate : MonoBehaviour {
+	public Sprite pressuredSprite; 
+	public Sprite releasedSprite;
 	public static List<PressurePlate> pressurePlates;
 	public int id;
 	public Vector2Int position ;
@@ -34,9 +36,16 @@ public class PressurePlate : MonoBehaviour {
 
 	void Update( ) { 
 		RaycastHit hit;
-		hasSomethingOnTop =  Physics.Raycast(
-			transform.position,Vector3.back, out hit,Mathf.Infinity) ;
-
+		ToggleSprites ( Physics.Raycast(
+			transform.position,Vector3.back, out hit,Mathf.Infinity)) ;
 	}
+
+	void ToggleSprites (bool newState) {
+		if (newState == hasSomethingOnTop)
+			return;
+		hasSomethingOnTop = newState;
+		GetComponentInChildren<SpriteRenderer>().sprite =
+		hasSomethingOnTop ? pressuredSprite : releasedSprite;
+    }
 
 }
