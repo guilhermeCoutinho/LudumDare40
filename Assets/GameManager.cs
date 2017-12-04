@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : SingletonMonoBehaviour<GameManager> {
 	Timer timer;
+	public GameObject startScreen ;
 	public LevelData[] levelSequences;
 	public LevelScreen levelScreen ;
 	public GameOverScreen gameOverScreen;
@@ -19,18 +20,20 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		timer = GetComponent<Timer>();
 	}
 
-	void Start () {
-		StartGame (5);
-	}
-
 	void Update () {
-		if (!gameRunning)
+		if (!gameRunning){
+			if (Input.GetKeyDown(KeyCode.Escape)){
+				startScreen.SetActive (false);
+				StartGame(3);
+			}
 			return;
+		}
 		if (Input.GetKeyDown(KeyCode.Backspace)){
 			Sound.Instance.Play(0, (int)Sound.soundEvents.RESET);
 			PlayerDied ();
 		}
 		if (Input.GetKeyDown(KeyCode.Return)){
+			Debug.LogWarning ("REMOVE THIS BEFORE BUILDDDDDDDDDDDDDDDDDDDDDDDD");
 			OpenNextLevel ();
 		}
 	}
