@@ -17,7 +17,6 @@ public class LevelScreen : SingletonMonoBehaviour<LevelScreen> {
 	}
 
 	public void updateLives(){
-		Debug.Log(levelScreen);
 		switch(GameManager.Instance.playerLifes){
 			case 1:
 				levelScreen.transform.GetChild(0).gameObject.SetActive(true);

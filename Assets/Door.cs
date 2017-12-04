@@ -6,7 +6,6 @@ public class Door : MonoBehaviour {
 	public bool firstTimeOpen=true;
 	public bool isOpen;
 	public static List<Door> doorList;
-	Vector2Int playerStandPosition;
 	Vector2Int position;
 	public bool openAutomatic;
 	public List<int> keyIds;
@@ -43,9 +42,8 @@ public class Door : MonoBehaviour {
 		firstTimeOpen=true;
 	}
 
-	public void Setup (RequirementsMetaData requirements , Vector2Int playerPosition,
+	public void Setup (RequirementsMetaData requirements , 
 		bool openAutomatically) {
-		this.playerStandPosition = playerPosition;
 		this.openAutomatic = openAutomatically;
 		keyIds = new List<int>();
 		pressurePlates = new List<PressurePlate>();
@@ -54,7 +52,8 @@ public class Door : MonoBehaviour {
 			if (requirement.type == 0) // ITS A KEY
 				keyIds.Add (requirement.id);
 			else 
-				pressurePlates.Add( PressurePlate.GetPressurePlateByPosition ( new Vector2Int( requirement.positionInGrid)  ));
+				pressurePlates.Add( PressurePlate.GetPressurePlateByPosition 
+				( new Vector2Int( requirement.positionInGrid)  ));
 		}
 	} 
 

@@ -23,7 +23,6 @@ public static class MDParser {
                 do
                 {
                     line = streamReader.ReadLine();
-                    Debug.Log(line);
                     if (line != null)
                     {
                         if(line.Split(' ').Length==2){
@@ -39,7 +38,6 @@ public static class MDParser {
                             int b = int.Parse(line.Split(' ')[1]);
                             int c = int.Parse(line.Split(' ')[2]);
                             RequirementsMetaData temp = data.requirements[doorIndex-1];
-                            Debug.Log(temp);
                             temp.requirements.Add(new RequirementMetaData());
                             temp.requirements[elementIndex].positionInGrid=new Vector2(a,b);
                             temp.requirements[elementIndex].type = c;

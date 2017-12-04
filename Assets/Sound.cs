@@ -46,54 +46,38 @@ public class Sound : SingletonMonoBehaviour<Sound> {
 	public void Play(int layer, int sound){
 		switch (sound){
 			case 0: //pushbox
-			Debug.Log(layer + ": BOX IS PUSHED");
-
 			break;
 			case 1: //steps
-			Debug.Log(layer + ": step");
 			layers[layer].clip = sounds[4];
 			layers[layer].Play();
 			break;
 			case 2: //grab
-			Debug.Log(layer + ": ITEM ACQUIRED");
 			layers[layer].clip = sounds[2];
 			layers[layer].Play();
 			break;
 			case 3: //fanfare
-			Debug.Log(layer + ": CONGRATULATIONS");
-
 			break;
 			case 4: //door
-			Debug.Log(layer + ": DOOR HAS OPENED");
-			
 			break;
 			case 5: //start
-			Debug.Log(layer + ": LEVEL HAS STARTED");
 			layers[layer].clip = sounds[6];
 			layers[layer].Play();
 			break;
-			case 6: //finish
-			Debug.Log(layer + ": LEVEL COMPLETE");
-			
+			case 6: //finish			
 			break;
 			case 7: //death
-			Debug.Log(layer + ": YOU DIED");
 			layers[layer].clip = sounds[1];
 			layers[layer].Play();
 			break;
 			case 8: //reset
-			Debug.Log(layer + ": LEVEL RESET");
 			layers[layer].clip = sounds[1];
 			layers[layer].Play();
 			break;
 			case 9: //hole
-			Debug.Log(layer + ": YOU FELL IN A HOLE");
 			layers[layer].clip = sounds[1];
 			layers[layer].Play();
 			break;
 			case 10: //gameover
-			Debug.Log(layer + ": GAME OVER :(");
-
 			break;
 			default:
 				Debug.LogError("UNIDENTIFIED SOUND ID " + sound + "ON LAYER" + layer);
