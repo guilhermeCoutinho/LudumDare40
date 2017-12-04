@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c41c6f297b3f6142bdfe7a4c3cedc10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  borderAroundLevel: 2
   contentParent: {fileID: 1494131832}
   floorId: 2
   playerId: 4
@@ -245,6 +246,7 @@ MonoBehaviour:
     type: 2}
   pool: {fileID: 792209904}
   wallPool: {fileID: 1499896502}
+  borderSprite: {fileID: 21300012, guid: 102243e654b61664ba77d28e503cdb41, type: 3}
 --- !u!4 &987654147
 Transform:
   m_ObjectHideFlags: 0

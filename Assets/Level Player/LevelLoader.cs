@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
 
+    public int borderAroundLevel = 2;
     const string FILE_NAME = "Level ";
 
     string MapName = "level5";
@@ -34,6 +35,8 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
     public ObjectPool pool;
     public ObjectPool wallPool;
 
+    public Sprite borderSprite;
+
     Level model;
     public Level LoadedLevel
     {
@@ -55,21 +58,28 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
         int colCount= 0;
         List<int> data;
         data = CSVParser.ParseCSV ( MapName + ".csv" , out colCount);
-
-        int rowCount = data.Count / colCount;
-
+        int rowCount = (data.Count / colCount ) ;
         model = new Level(rowCount , colCount);
-        
-
-        for (int i = 0; i < rowCount; i++)
+        int rowCountWithBorder = rowCount + borderAroundLevel * 2;
+        int colCountWithBorder = colCount + borderAroundLevel * 2;
+        for (int i = 0; i < rowCountWithBorder; i++)
         {
-            for (int j = 0; j < colCount; j++)
+            for (int j = 0; j < colCountWithBorder ; j++)
             {
-                int value = data[i * colCount + j];
-                model.setCell(i, j, value);
-                GameObject go = pool.getObject();
-                go.transform.name = "Cell_"+ i + "," + j + "_" + value;
-                go.transform.position = getWorldPosition(i, j, rowCount, colCount, 0);
+                int actualI = i - borderAroundLevel;
+                int actualJ = j - borderAroundLevel;
+                if (actualI >= 0 && actualJ >= 0 
+                    && actualI < rowCount && actualJ < colCount) {
+                    int value = data[actualI * colCount + actualJ];
+                    model.setCell(actualI, actualJ, value);
+                    GameObject go = pool.getObject();
+                    go.transform.position = getWorldPosition(actualI, actualJ, rowCount, colCount, 0);
+                }else {
+                    GameObject wallGO = wallPool.getObject();
+                    wallGO.transform.position = getWorldPosition(i, j, rowCountWithBorder,
+                     colCountWithBorder, -2);
+                     wallGO.GetComponentInChildren<SpriteRenderer>().sprite =borderSprite;
+                }
 			}
 		}
         for (int i = 0; i < rowCount; i++)
