@@ -23,7 +23,7 @@ public class KeyboardMapper  {
 		for (int i=0;i<keyboardMapBrazil.Length;i++){
 			for (int j=0;j<keyboardMapBrazil[i].Length;j++){
 				if (c == keyboardMapBrazil[i][j]){
-					return new Vector2Int (i,j);
+					return new Vector2Int (i+1,j+1);
 				}
 			}
 		}

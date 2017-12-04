@@ -50,6 +50,7 @@ public class Level
 
     public bool MovePlayer (Vector2Int playerInput)
     {
+
         int deltaX = playerInput.x - player.currentPosition.x ;
         int deltaY = playerInput.y - player.currentPosition.y ;
 
