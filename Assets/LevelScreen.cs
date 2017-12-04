@@ -1,29 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelScreen : SingletonMonoBehaviour<LevelScreen> {
-	public GameObject[] partsOfScreen;
 	public float tempo;
 
-	void Awake(){
-		int parts=transform.childCount;
-		partsOfScreen = new GameObject[parts];
-		for(int i=0; i<parts; i++){
-			partsOfScreen[i]=transform.GetChild(i).gameObject;
-		}
-	}
-
 	public IEnumerator BlinkScreen(){
-		UnityEngine.UI.Text levelname;
-		levelname =  GetComponentInChildren<UnityEngine.UI.Text>(true);
+		Text levelname;
+		levelname =  GetComponentInChildren<Text>(true);
 		levelname.text = "LEVEL "+(GameManager.Instance.currentLevel+1).ToString();
-		foreach(GameObject g in partsOfScreen){
-			g.SetActive(true);
-		}
 		yield return new WaitForSeconds(tempo); //black magic
-		foreach(GameObject g in partsOfScreen){
-			g.SetActive(false);
-		}
+		gameObject.SetActive(false);
 	}
 }

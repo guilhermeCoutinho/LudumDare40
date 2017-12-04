@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : SingletonMonoBehaviour<GameManager> {
 	public string[] levelSequences;
+	public LevelScreen levelScreen ;
 	private LevelLoader levelLoader;
 
 	public LifeCounter[] lifeCounters;
@@ -40,9 +41,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	}
 
 	void OpenLevel () {
-		levelLoader.LoadMap(
-			levelSequences[currentLevel] );
-		StartCoroutine(LevelScreen.Instance.BlinkScreen());
+		levelLoader.LoadMap(levelSequences[currentLevel] );
+		levelScreen.gameObject.SetActive(true);
+		StartCoroutine(levelScreen.BlinkScreen());
 		Sound.Instance.PlayBGM(0);
 		Sound.Instance.Play(1, (int)Sound.soundEvents.START);
 	}
