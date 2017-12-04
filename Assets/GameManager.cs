@@ -10,7 +10,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 
 	public LifeCounter[] lifeCounters;
 	public int playerLifes;
-	public int currentLevel ;
+	public int currentLevel;
 	public bool gameRunning = false;
 
 	void Awake () {
@@ -23,6 +23,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	}
 
 	void Update () {
+		Debug.Log(playerLifes);
 		if (!gameRunning)
 			return;
 		if (Input.GetKeyDown(KeyCode.Backspace)){
