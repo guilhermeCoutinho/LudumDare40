@@ -67,8 +67,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		levelScreen.gameObject.SetActive(true);
 		StartCoroutine(levelScreen.BlinkScreen());
 		timer.StartTimer(levelSequences[currentLevel].timeToComplete , OnTimeRunOunt);
-		Sound.Instance.PlayBGM(0);
+		//Sound.Instance.PlayBGM(0);
 		Sound.Instance.Play(0, (int)Sound.soundEvents.START);
+		Sound.Instance.Play(3, (int)Sound.soundEvents.START);
 	}
 
 	void OnTimeRunOunt () {
@@ -85,7 +86,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	}
 
 	public void PlayerReachedGoal () {
-		Sound.Instance.Play(0, (int)Sound.soundEvents.FINISH);
+		Sound.Instance.Play(3, (int)Sound.soundEvents.FINISH);
 		OpenNextLevel ();
 	}
 

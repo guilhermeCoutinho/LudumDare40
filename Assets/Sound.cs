@@ -46,7 +46,7 @@ public class Sound : SingletonMonoBehaviour<Sound> {
 	}
 
 	public void Play(int layer, int sound){
-		return;
+		layers[layer].volume=1f;
 		switch (sound){
 			case 0: //pushbox
 			layers[layer].clip = sounds[30];
@@ -63,11 +63,15 @@ public class Sound : SingletonMonoBehaviour<Sound> {
 			case 3: //fanfare
 			break;
 			case 4: //door
+			layers[layer].clip = sounds[11];
+			layers[layer].Play();
 			break;
 			case 5: //start
 			layers[1].clip = sounds[28];
 			layers[1].Play();
 			layers[0].clip = bgms[0];
+			layers[0].loop=true;
+			layers[0].volume=0.5f;
 			layers[0].PlayDelayed(1.2f);
 			break;
 			case 6: //finish			
@@ -87,9 +91,12 @@ public class Sound : SingletonMonoBehaviour<Sound> {
 			case 10: //gameover
 			break;
 			case (int)soundEvents.BUTTOND:
-			
+			layers[layer].clip = sounds[12];
+			layers[layer].Play();
 			break;
 			case (int)soundEvents.BUTTONU:
+			layers[layer].clip = sounds[13];
+			layers[layer].Play();
 			break;
 			default:
 				Debug.LogError("UNIDENTIFIED SOUND ID " + sound + "ON LAYER" + layer);

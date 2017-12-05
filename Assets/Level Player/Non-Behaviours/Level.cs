@@ -66,7 +66,6 @@ public class Level
 		} else {
             return false; //não conseguiu mover
         }
-        Sound.Instance.Play(4, (int)Sound.soundEvents.STEPS);
         return true; //conseguiu mover
     }
 
@@ -74,6 +73,7 @@ public class Level
         if(!insideGrid(target))return false;
         bool notColliding = isGround(target.x, target.y) || isKey(target.x, target.y)
         || isPressurePlate(target)||isFinishTile(target);
+        Sound.Instance.Play(4, (int)Sound.soundEvents.STEPS);
         return notColliding;
 	}
 
@@ -114,7 +114,7 @@ public class Level
             player.onTopOf = movingBox.onTopOf;
             movingBox.onTopOf = grid[movingBox.currentPosition.x,movingBox.currentPosition.y];
             grid[movingBox.currentPosition.x,movingBox.currentPosition.y] = LevelLoader.Instance.boxId;
-    		Sound.Instance.Play(0, (int)Sound.soundEvents.PUSHBOX);
+    		Sound.Instance.Play(3, (int)Sound.soundEvents.PUSHBOX);
         }
 	}
 
