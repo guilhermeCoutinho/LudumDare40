@@ -35,7 +35,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		}
 		else if (gameState == GameState.GAME_RUNNING){
 			if (Input.GetKeyDown(KeyCode.Backspace)){
-				Sound.Instance.Play(0, (int)Sound.soundEvents.RESET);
+				Sound.Instance.Play(3, (int)Sound.soundEvents.RESET);
 				PlayerDied ();
 			}
 			if (Input.GetKeyDown(KeyCode.Return)){
@@ -100,7 +100,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	}
 
 	void GameOver () {
-		Sound.Instance.Play(0, (int)Sound.soundEvents.GAMEOVER);
+		Sound.Instance.Play(3, (int)Sound.soundEvents.GAMEOVER);
         gameOverScreen.SetActive(true);
         gameState = GameState.GAME_OVER;
 		timer.StopTimer ();
