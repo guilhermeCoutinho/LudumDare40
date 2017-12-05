@@ -829,11 +829,11 @@ MonoBehaviour:
   gameState: 0
   startScreen: {fileID: 101498788}
   levelSequences:
-  - name: level5
+  - name: level2
     timeToComplete: 12
     showOnlyAdjacentToPlayerKeys: 0
     shouldHide: 0
-  - name: level2
+  - name: level5
     timeToComplete: 10
     showOnlyAdjacentToPlayerKeys: 0
     shouldHide: 0
@@ -867,7 +867,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 8300000, guid: da3e8ec6c5e647d42bfd3bafe92d13f5, type: 3}
+  - {fileID: 8300000, guid: 2af609c30a2655f4c97f72fd98ea38a6, type: 3}
   - {fileID: 8300000, guid: 7a54d5b86ec1aef49908a30ef5f5fe2a, type: 3}
   - {fileID: 8300000, guid: 0ff16e7fbdf1e4444870262b97c06bd7, type: 3}
   - {fileID: 0}
