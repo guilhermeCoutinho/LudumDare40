@@ -59,7 +59,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 
 	void OpenLevel () {
 		Debug.Log ("OPEN LEVEL CALLED");
-		levelLoader.LoadMap(levelSequences[currentLevel] );
+		levelLoader.LoadMap(levelSequences[currentLevel]);
 		levelScreen.gameObject.SetActive(true);
 		StartCoroutine(levelScreen.BlinkScreen());
 		timer.StartTimer(levelSequences[currentLevel].timeToComplete , OnTimeRunOunt);
@@ -77,7 +77,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 			currentLevel ++ ;
 			OpenLevel();
 		}catch(System.IndexOutOfRangeException){
-			Debug.LogError("VICTORY");
+			Application.Quit();
 		}
 	}
 
