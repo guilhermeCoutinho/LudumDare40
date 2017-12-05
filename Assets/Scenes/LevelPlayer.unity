@@ -829,11 +829,11 @@ MonoBehaviour:
   gameState: 0
   startScreen: {fileID: 101498788}
   levelSequences:
-  - name: level5
+  - name: level2
     timeToComplete: 12
     showOnlyAdjacentToPlayerKeys: 0
     shouldHide: 0
-  - name: level2
+  - name: level5
     timeToComplete: 10
     showOnlyAdjacentToPlayerKeys: 0
     shouldHide: 0
@@ -856,17 +856,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - {fileID: 8300000, guid: 783da9ae908ccbc4998f2cb24777fcf8, type: 3}
-  - {fileID: 8300000, guid: f0e81478c8ec67342b5fc4359c15130c, type: 3}
-  - {fileID: 8300000, guid: a62cad89001b1214d82d0dde05ed2037, type: 3}
-  - {fileID: 8300000, guid: c17d38cb4cb4b7947859ff9338ab1c2b, type: 3}
-  - {fileID: 8300000, guid: ff257b9c4a42df44d8eba57cb970b76f, type: 3}
+  - {fileID: 0}
   - {fileID: 8300000, guid: 11b8a1448d359654cbbc250edd086504, type: 3}
-  - {fileID: 8300000, guid: dc771cf14262b96439c4a44c533232be, type: 3}
-  - {fileID: 8300000, guid: 144a399c75b9f034c933a13b31ded143, type: 3}
-  - {fileID: 8300000, guid: 89a6c65d706ad5b4292cfdcdd9edf2e1, type: 3}
-  - {fileID: 8300000, guid: 164c2b95f987b924e83146fd168654eb, type: 3}
-  - {fileID: 8300000, guid: 99f19939d1a48fe4c99f59df597f9cee, type: 3}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: a62cad89001b1214d82d0dde05ed2037, type: 3}
+  - {fileID: 8300000, guid: ff257b9c4a42df44d8eba57cb970b76f, type: 3}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: f0e81478c8ec67342b5fc4359c15130c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 2af609c30a2655f4c97f72fd98ea38a6, type: 3}
+  - {fileID: 8300000, guid: 7a54d5b86ec1aef49908a30ef5f5fe2a, type: 3}
+  - {fileID: 8300000, guid: 0ff16e7fbdf1e4444870262b97c06bd7, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: ead2efefd7dfa524c9e799907d2370c0, type: 3}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: b15baecfd6bb7374794012f1adf595a5, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   bgms:
   - {fileID: 8300000, guid: a6057fb1e18c3d74d9b4f08b4cefb826, type: 3}
   layers:
