@@ -857,17 +857,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 11b8a1448d359654cbbc250edd086504, type: 3}
   - {fileID: 0}
   - {fileID: 8300000, guid: a62cad89001b1214d82d0dde05ed2037, type: 3}
   - {fileID: 8300000, guid: ff257b9c4a42df44d8eba57cb970b76f, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: f0e81478c8ec67342b5fc4359c15130c, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 8300000, guid: da3e8ec6c5e647d42bfd3bafe92d13f5, type: 3}
+  - {fileID: 8300000, guid: 7a54d5b86ec1aef49908a30ef5f5fe2a, type: 3}
+  - {fileID: 8300000, guid: 0ff16e7fbdf1e4444870262b97c06bd7, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -882,9 +884,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: ead2efefd7dfa524c9e799907d2370c0, type: 3}
   - {fileID: 0}
   - {fileID: 8300000, guid: b15baecfd6bb7374794012f1adf595a5, type: 3}
   - {fileID: 0}
