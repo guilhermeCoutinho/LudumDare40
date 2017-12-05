@@ -829,16 +829,32 @@ MonoBehaviour:
   gameState: 0
   startScreen: {fileID: 101498788}
   levelSequences:
-  - name: level6
-    timeToComplete: 20
+  - name: level2
+    timeToComplete: 30
     showOnlyAdjacentToPlayerKeys: 0
     shouldHide: 0
   - name: level3
-    timeToComplete: 20
+    timeToComplete: 30
     showOnlyAdjacentToPlayerKeys: 0
     shouldHide: 0
   - name: level4
-    timeToComplete: 20
+    timeToComplete: 30
+    showOnlyAdjacentToPlayerKeys: 0
+    shouldHide: 0
+  - name: level6
+    timeToComplete: 100
+    showOnlyAdjacentToPlayerKeys: 0
+    shouldHide: 0
+  - name: level1
+    timeToComplete: 30
+    showOnlyAdjacentToPlayerKeys: 0
+    shouldHide: 0
+  - name: level5
+    timeToComplete: 100
+    showOnlyAdjacentToPlayerKeys: 0
+    shouldHide: 0
+  - name: level7
+    timeToComplete: 100
     showOnlyAdjacentToPlayerKeys: 0
     shouldHide: 0
   levelScreen: {fileID: 1979424308}

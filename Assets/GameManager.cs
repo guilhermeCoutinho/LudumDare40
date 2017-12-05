@@ -38,10 +38,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				Sound.Instance.Play(3, (int)Sound.soundEvents.RESET);
 				PlayerDied ();
 			}
-			if (Input.GetKeyDown(KeyCode.Return)){
-				Debug.LogWarning ("REMOVE THIS BEFORE BUILDDDDDDDDDDDDDDDDDDDDDDDD");
-				OpenNextLevel ();
-			}
 		}else if (gameState == GameState.GAME_OVER){
 			if (Input.anyKeyDown){
 				gameOverScreen.SetActive(false);
