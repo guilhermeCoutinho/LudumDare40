@@ -27,9 +27,6 @@ public class Player : MonoBehaviour {
         if ( GameManager.Instance.gameState != GameManager.GameState.GAME_RUNNING)
             return ;
 
-        if(Input.GetKeyDown(KeyCode.Escape)){
-            escapeKey = true;
-        }
         if (Input.anyKeyDown)
         {
             string rawInput = Input.inputString;
@@ -50,7 +47,7 @@ public class Player : MonoBehaviour {
 				}
 			}
         }
-        if (onTopOf == LevelLoader.Instance.victoryPlateId&&escapeKey){
+        if (onTopOf == LevelLoader.Instance.victoryPlateId){
             GameManager.Instance.PlayerReachedGoal ();
         }
     }
