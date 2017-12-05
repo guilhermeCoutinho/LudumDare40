@@ -44,9 +44,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 			}
 		}else if (gameState == GameState.GAME_OVER){
 			if (Input.anyKeyDown){
-				startScreen.SetActive(true);
 				gameOverScreen.SetActive(false);
-				gameState = GameState.START_SCREEN;
+				gameState = GameState.GAME_RUNNING;
+				playerLifes = 3;
+				SetupLifeCounters(3);
+				OpenLevel();
 			}
 		}
 	}
