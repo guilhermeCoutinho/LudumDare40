@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour {
         this.origin = origin;
         this.position = position;
         this.target = target;
+
+        LevelLoader.Instance.LoadedLevel.setEnemyReference(this);
+
         int deltaX = Mathf.Clamp ( target.x - origin.x , -1 , 1 );
         int deltaY = Mathf.Clamp ( target.y - origin.y , -1 , 1);
         direction = new Vector2Int (deltaX,deltaY);

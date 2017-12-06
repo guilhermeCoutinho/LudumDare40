@@ -10,6 +10,7 @@ public class Level
     public int Height { get { return grid.GetLength(0); } }
 
     public Player player;
+    public List<Enemy> enemies;
     KeyboardMapper keyboard;
 
     public Level(int rowCount, int colCount)
@@ -47,6 +48,12 @@ public class Level
             debug += "\n";
         }
         Debug.Log(debug);
+    }
+
+    public void setEnemyReference (Enemy enemy) {
+        if (enemies == null )
+            enemies = new List<Enemy>();
+        enemies.Add (enemy);
     }
 
     public bool MovePlayer (Vector2Int playerInput)
@@ -118,14 +125,28 @@ public class Level
         }
 	}
 
-    bool canMoveBox (Vector2Int origin, Vector2Int direction) {
-        Vector2Int target = origin + direction;
+    bool canMoveBox (Vector2Int playerPosition, Vector2Int direction) {
+        Vector2Int target = playerPosition + direction;
         Vector2Int boxTargetAfterBeingPushed = target + direction;
         if (!insideGrid(boxTargetAfterBeingPushed))
             return false;
         if( grid[ target.x,target.y] == LevelLoader.Instance.boxId){
             if ( validBoxCollisions ( grid[boxTargetAfterBeingPushed.x,boxTargetAfterBeingPushed.y])){
-                return true;
+                if (!boxWillCollideWithEnemy(boxTargetAfterBeingPushed))
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    // HOTFIX
+    bool boxWillCollideWithEnemy (Vector2Int boxPositionAfterBeingPushed) 
+    {
+        if (enemies != null) {
+            foreach (Enemy enemy in enemies)
+            {
+                if (enemy.position.isEqual(boxPositionAfterBeingPushed))
+                    return true;
             }
         }
         return false;

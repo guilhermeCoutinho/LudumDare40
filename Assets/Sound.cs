@@ -67,12 +67,7 @@ public class Sound : SingletonMonoBehaviour<Sound> {
 			layers[layer].Play();
 			break;
 			case 5: //start
-			layers[1].clip = sounds[28];
-			layers[1].Play();
-			layers[0].clip = bgms[0];
-			layers[0].loop=true;
-			layers[0].volume=0.5f;
-			layers[0].PlayDelayed(1.2f);
+			StartCoroutine(onStartLevel ());
 			break;
 			case 6: //finish			
 			break;
@@ -89,6 +84,10 @@ public class Sound : SingletonMonoBehaviour<Sound> {
 			layers[layer].Play();
 			break;
 			case 10: //gameover
+			layers[0].volume=0f;
+			layers[1].volume = 1;
+			layers[1].clip = sounds[0];// im afraid
+			layers[1].Play();
 			break;
 			case (int)soundEvents.BUTTOND:
 			layers[layer].clip = sounds[12];
@@ -102,5 +101,26 @@ public class Sound : SingletonMonoBehaviour<Sound> {
 				Debug.LogError("UNIDENTIFIED SOUND ID " + sound + "ON LAYER" + layer);
 			break;
 		}
+	}
+
+	IEnumerator onStartLevel () {
+        layers[0].volume = 0f;
+        layers[2].volume = 0.25f;
+        layers[2].clip = sounds[28];
+        layers[2].Play();
+        yield return new WaitForSeconds(1.6f);
+        /*
+        layers[1].volume = 0.25f;
+        layers[1].clip = sounds[6];
+        layers[1].Play();
+        yield return new WaitForSeconds(.4f);
+		 */
+        layers[0].volume = 0.4f;
+        if (!layers[0].isPlaying)
+        {
+            layers[0].clip = bgms[0];
+            layers[0].loop = true;
+            layers[0].Play();
+        }
 	}
 }

@@ -6,7 +6,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	public enum GameState {
 		START_SCREEN ,
 		GAME_RUNNING ,
-		GAME_OVER
+		GAME_OVER ,
+		END_GAME
 	};
 	public GameState gameState;
 	Timer timer;
@@ -14,6 +15,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	public LevelData[] levelSequences;
 	public LevelScreen levelScreen ;
 	public GameObject gameOverScreen;
+	public GameObject endGameScreen ;
 	private LevelLoader levelLoader;
 
 	public LifeCounter[] lifeCounters;
@@ -34,7 +36,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 			return;
 		}
 		else if (gameState == GameState.GAME_RUNNING){
-			if (Input.GetKeyDown(KeyCode.Backspace)){
+			if (Input.GetKeyDown(KeyCode.Escape)){
 				Sound.Instance.Play(3, (int)Sound.soundEvents.RESET);
 				PlayerDied ();
 			}
@@ -46,6 +48,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 				SetupLifeCounters(3);
 				OpenLevel();
 			}
+		}else if  (gameState == GameState.END_GAME){
+			if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
 		}
 	}
 
@@ -77,7 +84,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 			currentLevel ++ ;
 			OpenLevel();
 		}catch(System.IndexOutOfRangeException){
-			Application.Quit();
+			gameState = GameState.GAME_OVER;
+			endGameScreen.SetActive(true);
 		}
 	}
 
