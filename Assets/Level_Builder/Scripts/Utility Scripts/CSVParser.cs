@@ -6,7 +6,11 @@ using System.IO;
 using System.Text;
 
 public static class CSVParser {
-    public static string path = "LevelData/";
+    #if UNITY_EDITOR
+    public static string path = "Build/LevelData/";
+#else
+     public static string path = "LevelData/";
+#endif
     public static List<int> ParseCSV(string fileName,
         out int colCount) {
         List<int> data = new List<int>();

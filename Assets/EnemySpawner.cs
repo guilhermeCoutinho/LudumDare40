@@ -6,7 +6,12 @@ using System.IO;
 using System.Text;
 
 public class EnemySpawner : MonoBehaviour {
-	public static string path = "Build/LevelData/";
+#if UNITY_EDITOR
+    public static string path = "Build/LevelData/";
+#else
+     public static string path = "LevelData/";
+#endif
+
     public Transform contentParent;
 	public GameObject enemyPrefab;
 	int rowCount , colCount;

@@ -6,7 +6,12 @@ using System.IO;
 using System.Text;
 
 public static class MDParser {
-    public static string path = "LevelData/";
+#if UNITY_EDITOR
+    public static string path = "Build/LevelData/";
+#else
+     public static string path = "LevelData/";
+#endif
+
     public static void Parse(string fileName, ref LevelMetaData data) {
         fileName = fileName + "_md.txt";
         try

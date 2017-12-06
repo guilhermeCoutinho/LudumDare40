@@ -409,7 +409,7 @@ Prefab:
     - target: {fileID: 224407458706022510, guid: a46e76724b3f72740949d44c690b0b4e,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 289.1477
+      value: 289.15408
       objectReference: {fileID: 0}
     - target: {fileID: 224407458706022510, guid: a46e76724b3f72740949d44c690b0b4e,
         type: 2}
@@ -829,18 +829,14 @@ MonoBehaviour:
   gameState: 0
   startScreen: {fileID: 101498788}
   levelSequences:
+  - name: levela
+    timeToComplete: 30
+    showOnlyAdjacentToPlayerKeys: 0
+    shouldHide: 0
   - name: level2
     timeToComplete: 30
     showOnlyAdjacentToPlayerKeys: 0
     shouldHide: 0
-  - name: level6
-    timeToComplete: 20
-    showOnlyAdjacentToPlayerKeys: 0
-    shouldHide: 0
-  - name: levelb
-    timeToComplete: 12
-    showOnlyAdjacentToPlayerKeys: 0
-    shouldHide: 0
   - name: level3
     timeToComplete: 30
     showOnlyAdjacentToPlayerKeys: 0
@@ -849,32 +845,28 @@ MonoBehaviour:
     timeToComplete: 30
     showOnlyAdjacentToPlayerKeys: 0
     shouldHide: 0
-  - name: level6
-    timeToComplete: 100
-    showOnlyAdjacentToPlayerKeys: 0
-    shouldHide: 0
-  - name: level1
+  - name: levelf
     timeToComplete: 30
     showOnlyAdjacentToPlayerKeys: 0
     shouldHide: 0
-  - name: level5
-    timeToComplete: 100
+  - name: leveld
+    timeToComplete: 120
+    showOnlyAdjacentToPlayerKeys: 0
+    shouldHide: 0
+  - name: level6
+    timeToComplete: 40
     showOnlyAdjacentToPlayerKeys: 0
     shouldHide: 0
   - name: level7
-    timeToComplete: 100
+    timeToComplete: 120
     showOnlyAdjacentToPlayerKeys: 0
     shouldHide: 0
-  - name: level3
-    timeToComplete: 20
+  - name: level5
+    timeToComplete: 120
     showOnlyAdjacentToPlayerKeys: 0
     shouldHide: 0
-  - name: level4
-    timeToComplete: 20
-    showOnlyAdjacentToPlayerKeys: 0
-    shouldHide: 0
-  - name: levela
-    timeToComplete: 10
+  - name: level1
+    timeToComplete: 120
     showOnlyAdjacentToPlayerKeys: 0
     shouldHide: 0
   levelScreen: {fileID: 1979424308}
@@ -1166,7 +1158,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1219625817}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 400, y: 300.1477, z: 0}
+  m_LocalPosition: {x: 400, y: 300.15408, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 745948490}
@@ -1254,7 +1246,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1441275641}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -300.1477, z: 0}
+  m_LocalPosition: {x: 0, y: -300.15408, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 745948490}
@@ -1462,8 +1454,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1483369229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 338.5, y: 254, z: 0}
-  m_LocalScale: {x: 0.84625, y: 0.84625, z: 0.84625}
+  m_LocalPosition: {x: 324.5, y: 243.5, z: 0}
+  m_LocalScale: {x: 0.81125, y: 0.81125, z: 0.81125}
   m_Children:
   - {fileID: 745948490}
   - {fileID: 1455809250}
@@ -1883,7 +1875,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1851819627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 300.1477, z: 0}
+  m_LocalPosition: {x: 0, y: 300.15408, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 745948490}
