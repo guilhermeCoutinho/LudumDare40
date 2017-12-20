@@ -87,7 +87,7 @@ public class LevelLoader : SingletonMonoBehaviour<LevelLoader>   {
     {
         int colCount= 0;
         List<int> data;
-        data = CSVParser.ParseCSV ( MapName + ".csv" , out colCount);
+        data = CSVParser.ParseCSV ( MapName, out colCount);
         int rowCount = (data.Count / colCount ) ;
         model = new Level(rowCount , colCount);
         int rowCountWithBorder = rowCount + borderAroundLevel * 2;

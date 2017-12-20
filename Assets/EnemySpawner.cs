@@ -4,13 +4,12 @@ using UnityEngine;
 using System;
 using System.IO;
 using System.Text;
+using Assets;
 
-public class EnemySpawner : MonoBehaviour {
-#if UNITY_EDITOR
-    public static string path = "Build/LevelData/";
-#else
-     public static string path = "LevelData/";
-#endif
+public class EnemySpawner : MonoBehaviour
+{
+
+    public static string path = "LevelData/";
 
     public Transform contentParent;
 	public GameObject enemyPrefab;
@@ -24,40 +23,40 @@ public class EnemySpawner : MonoBehaviour {
 
     void Parse(string fileName)
     {
-        fileName = fileName + "_es.txt";
+
+        fileName = fileName + "_es";
+
         try
         {
-            string line;
-            StreamReader streamReader = new StreamReader(
-                path + fileName, Encoding.Default);
-            using (streamReader)
+
+            List<string> textLines
+                = ParseUtils.TextAssetToList(Resources.Load(path + fileName) as TextAsset);
+
+            foreach (string line in textLines)
             {
-                do
+                if (line != null)
                 {
-                    line = streamReader.ReadLine();
-                    if (line != null)
-                    {
-						string[] inp = line.Split(' ');
-						Vector2Int enemyOrigin = new Vector2Int (
-							int.Parse(inp[0]),int.Parse(inp[1])
-						);
-                        Vector2Int enemyDestiny =new Vector2Int(
-                            int.Parse(inp[2]), int.Parse(inp[3])
-                        );
-                        GameObject clone = Instantiate(enemyPrefab,
-						LevelLoader.Instance.getWorldPosition(
-							enemyOrigin.x,enemyOrigin.y,rowCount,colCount, -4),
-						enemyPrefab.transform.rotation,
-                        contentParent);
-						clone.GetComponent<Enemy>().Initialize(enemyOrigin,enemyDestiny,enemyOrigin);
-                    }
-                } while (line != null);
-                streamReader.Close();
+                    string[] inp = line.Split(' ');
+                    Vector2Int enemyOrigin = new Vector2Int(
+                        int.Parse(inp[0]), int.Parse(inp[1])
+                    );
+                    Vector2Int enemyDestiny = new Vector2Int(
+                        int.Parse(inp[2]), int.Parse(inp[3])
+                    );
+                    GameObject clone = Instantiate(enemyPrefab,
+                    LevelLoader.Instance.getWorldPosition(
+                        enemyOrigin.x, enemyOrigin.y, rowCount, colCount, -4),
+                    enemyPrefab.transform.rotation,
+                    contentParent);
+                    clone.GetComponent<Enemy>().Initialize(enemyOrigin, enemyDestiny, enemyOrigin);
+                }
+
             }
+                
         }
         catch (Exception e)
         {
-            Debug.Log("Unable to open file\n"
+            Debug.Log("Unable to Load file " + fileName + "\n"
                 + e.Message);
             return;
         }

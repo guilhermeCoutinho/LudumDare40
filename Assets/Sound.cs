@@ -8,7 +8,9 @@ public class Sound : SingletonMonoBehaviour<Sound> {
 	public AudioSource[] layers;
 	public AudioSource BGMLayer;
 
-	public void Awake(){
+	public void Awake()
+    {
+
 		for(int i=0;i<layers.Length;i++){
 			layers[i]=gameObject.AddComponent<AudioSource>();
 			layers[i].playOnAwake=false;
@@ -18,9 +20,11 @@ public class Sound : SingletonMonoBehaviour<Sound> {
 		BGMLayer.playOnAwake=false;
 		BGMLayer.loop=true;
 		BGMLayer.priority=-1;
+
 	}
 
-	public enum soundEvents{
+	public enum soundEvents
+    {
 		PUSHBOX,
 		STEPS,
 		GRAB,
@@ -36,76 +40,96 @@ public class Sound : SingletonMonoBehaviour<Sound> {
 		BUTTONU
 	}
 
-	public void PlayBGM(int bgmId){
+	public void PlayBGM(int bgmId)
+    {
 		BGMLayer.clip = bgms[bgmId];
-		BGMLayer.volume = 0.5f;
+		BGMLayer.volume = 0.15f;
 	}
 
-	public void StopBGM(){
+	public void StopBGM()
+    {
 		BGMLayer.Stop();
 	}
 
-	public void Play(int layer, int sound){
-		layers[layer].volume=1f;
+	public void Play(int layer, int sound)
+    {
+
+		layers[layer].volume=0.15f;
+
 		switch (sound){
 			case 0: //pushbox
-			layers[layer].clip = sounds[30];
-			layers[layer].Play();
-			break;
+			    layers[layer].clip = sounds[30];
+			    layers[layer].Play();
+			    break;
+
 			case 1: //steps
-			layers[layer].clip = sounds[4];
-			layers[layer].Play();
-			break;
+                layers[layer].volume = 0.15f;
+                layers[layer].clip = sounds[4];
+			    layers[layer].Play();
+			    break;
+
 			case 2: //grab
-			layers[layer].clip = sounds[3];
-			layers[layer].Play();
-			break;
+			    layers[layer].clip = sounds[3];
+			    layers[layer].Play();
+			    break;
+
 			case 3: //fanfare
-			break;
+			    break;
+
 			case 4: //door
-			layers[layer].clip = sounds[11];
-			layers[layer].Play();
-			break;
+                layers[layer].volume = 0.25f;
+                layers[layer].clip = sounds[11];
+			    layers[layer].Play();
+			    break;
+
 			case 5: //start
-			StartCoroutine(onStartLevel ());
-			break;
+			    StartCoroutine(onStartLevel ());
+			    break;
+
 			case 6: //finish			
-			break;
+			    break;
+
 			case 7: //death
-			layers[layer].clip = sounds[6];
-			layers[layer].Play();
-			break;
+			    layers[layer].clip = sounds[6];
+			    layers[layer].Play();
+			    break;
+
 			case 8: //reset
-			//layers[layer].clip = sounds[1];
-			//layers[layer].Play();
-			break;
+			    //layers[layer].clip = sounds[1];
+			    //layers[layer].Play();
+			    break;
+
 			case 9: //hole
-			layers[layer].clip = sounds[1];
-			layers[layer].Play();
-			break;
+			    layers[layer].clip = sounds[1];
+			    layers[layer].Play();
+			    break;
+
 			case 10: //gameover
-			layers[0].volume=0f;
-			layers[1].volume = 1;
-			layers[1].clip = sounds[0];// im afraid
-			layers[1].Play();
-			break;
+			    layers[0].volume = 0f;
+			    layers[1].volume = 0.5f;
+			    layers[1].clip = sounds[0];// im afraid
+			    layers[1].Play();
+			    break;
+
 			case (int)soundEvents.BUTTOND:
-			layers[layer].clip = sounds[12];
-			layers[layer].Play();
-			break;
+			    layers[layer].clip = sounds[12];
+			    layers[layer].Play();
+			    break;
+
 			case (int)soundEvents.BUTTONU:
-			layers[layer].clip = sounds[13];
-			layers[layer].Play();
-			break;
+			    layers[layer].clip = sounds[13];
+			    layers[layer].Play();
+			    break;
+
 			default:
 				Debug.LogError("UNIDENTIFIED SOUND ID " + sound + "ON LAYER" + layer);
-			break;
+			    break;
 		}
 	}
 
 	IEnumerator onStartLevel () {
         layers[0].volume = 0f;
-        layers[2].volume = 0.25f;
+        layers[2].volume = 0.08f;
         layers[2].clip = sounds[28];
         layers[2].Play();
         yield return new WaitForSeconds(1.6f);
@@ -115,7 +139,7 @@ public class Sound : SingletonMonoBehaviour<Sound> {
         layers[1].Play();
         yield return new WaitForSeconds(.4f);
 		 */
-        layers[0].volume = 0.4f;
+        layers[0].volume = 0.10f;
         if (!layers[0].isPlaying)
         {
             layers[0].clip = bgms[0];

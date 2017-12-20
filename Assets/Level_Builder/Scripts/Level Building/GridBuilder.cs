@@ -84,7 +84,7 @@ public class GridBuilder : SingletonMonoBehaviour<GridBuilder> {
 			return;
 		string saveThis = parseGrid2CSV();
 		string fileName = fileText.text;
-		string path = "Build/LevelData/";
+		string path = "Resources/LevelData/";
 		File.WriteAllText (path + fileName + ".csv", saveThis);
 		CustomLogger.Instance.Log ("Success on saving file " + fileName);
 	}

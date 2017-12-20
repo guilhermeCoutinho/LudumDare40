@@ -27,32 +27,48 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		timer = GetComponent<Timer>();
 	}
 
-	void Update () {
-		if (gameState == GameState.START_SCREEN){
-			if (Input.GetKeyDown(KeyCode.Escape)){
-				startScreen.SetActive (false);
+	void Update ()
+    {
+
+		if (gameState == GameState.START_SCREEN)
+        {
+
+			if (Input.GetKeyDown(KeyCode.Escape))
+            {
+				startScreen.SetActive(false);
 				StartGame(3);
 			}
 			return;
+
 		}
-		else if (gameState == GameState.GAME_RUNNING){
-			if (Input.GetKeyDown(KeyCode.Escape)){
+		else if (gameState == GameState.GAME_RUNNING)
+        {
+			if (Input.GetKeyDown(KeyCode.Escape))
+            {
 				Sound.Instance.Play(3, (int)Sound.soundEvents.RESET);
 				PlayerDied ();
 			}
-		}else if (gameState == GameState.GAME_OVER){
-			if (Input.anyKeyDown){
+
+		}
+        else if (gameState == GameState.GAME_OVER)
+        {
+			if (Input.anyKeyDown)
+            {
 				gameOverScreen.SetActive(false);
 				gameState = GameState.GAME_RUNNING;
 				playerLifes = 3;
 				SetupLifeCounters(3);
 				OpenLevel();
 			}
-		}else if  (gameState == GameState.END_GAME){
+
+		}
+        else if  (gameState == GameState.END_GAME)
+        {
 			if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Application.Quit();
             }
+
 		}
 	}
 
@@ -75,11 +91,13 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		Sound.Instance.Play(3, (int)Sound.soundEvents.START);
 	}
 
-	void OnTimeRunOunt () {
+	void OnTimeRunOunt ()
+    {
 		PlayerDied();
 	}
 
-	public void OpenNextLevel () {
+	public void OpenNextLevel ()
+    {
 		try{
 			currentLevel ++ ;
 			OpenLevel();
@@ -89,12 +107,14 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		}
 	}
 
-	public void PlayerReachedGoal () {
+	public void PlayerReachedGoal ()
+    {
 		Sound.Instance.Play(3, (int)Sound.soundEvents.FINISH);
 		OpenNextLevel ();
 	}
 
-	public void PlayerDied () {
+	public void PlayerDied ()
+    {
 		playerLifes -- ;
 		if (playerLifes == 0){
 			GameOver ();
@@ -103,7 +123,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		OpenLevel ();
 	}
 
-	void GameOver () {
+	void GameOver ()
+    {
 		Sound.Instance.Play(3, (int)Sound.soundEvents.GAMEOVER);
         gameOverScreen.SetActive(true);
         gameState = GameState.GAME_OVER;
@@ -111,7 +132,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
         levelLoader.destroyContent();
 	}
 
-	void SetupLifeCounters (int n) {
+	void SetupLifeCounters (int n)
+    {
 		foreach (LifeCounter LifeCounter in lifeCounters)
 		{
 			LifeCounter.SetupLifeCounter(n);
