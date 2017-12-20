@@ -909,7 +909,6 @@ GameObject:
   m_Component:
   - component: {fileID: 711844687}
   - component: {fileID: 711844689}
-  - component: {fileID: 711844688}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -936,33 +935,6 @@ RectTransform:
   m_AnchoredPosition: {x: -2, y: -123}
   m_SizeDelta: {x: 404.8, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &711844688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 711844686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.007843138, g: 0.007843138, b: 0.007843138, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &711844689
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -984,7 +956,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &745948490
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1574,6 +1546,7 @@ MonoBehaviour:
   levelScreen: {fileID: 1979424308}
   gameOverScreen: {fileID: 1455809249}
   endGameScreen: {fileID: 1334460847}
+  guiHUD: {fileID: 745948489}
   lifeCounters:
   - {fileID: 1821347625}
   - {fileID: 2063784671}
@@ -1976,7 +1949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1334460848
 RectTransform:
   m_ObjectHideFlags: 0

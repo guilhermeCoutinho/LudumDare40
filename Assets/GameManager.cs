@@ -15,8 +15,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 	public LevelData[] levelSequences;
 	public LevelScreen levelScreen ;
 	public GameObject gameOverScreen;
-	public GameObject endGameScreen ;
-	private LevelLoader levelLoader;
+	public GameObject endGameScreen;
+    public GameObject guiHUD;
+    private LevelLoader levelLoader;
 
 	public LifeCounter[] lifeCounters;
 	public int playerLifes;
@@ -36,7 +37,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 			if (Input.GetKeyDown(KeyCode.Escape))
             {
 				startScreen.SetActive(false);
-				StartGame(3);
+
+                StartGame(3);
+
 			}
 			return;
 
@@ -64,7 +67,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		}
         else if  (gameState == GameState.END_GAME)
         {
-			if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Application.Quit();
             }
@@ -72,18 +75,23 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		}
 	}
 
-	public void StartGame (int lifes) {
+	public void StartGame (int lifes)
+    {
 		gameState = GameState.GAME_RUNNING;
-		playerLifes = lifes;
+        playerLifes = lifes;
 		currentLevel = 0;
 		OpenLevel();
         SetupLifeCounters(lifes);
 	}
 
-	void OpenLevel () {
-		Debug.Log ("OPEN LEVEL CALLED");
+	void OpenLevel ()
+    {
+        Debug.Log ("OPEN LEVEL CALLED");
 		levelLoader.LoadMap(levelSequences[currentLevel]);
-		levelScreen.gameObject.SetActive(true);
+
+        guiHUD.SetActive(true);
+        levelScreen.gameObject.SetActive(true);
+
 		StartCoroutine(levelScreen.BlinkScreen());
 		timer.StartTimer(levelSequences[currentLevel].timeToComplete , OnTimeRunOunt);
 		//Sound.Instance.PlayBGM(0);
@@ -91,31 +99,47 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
 		Sound.Instance.Play(3, (int)Sound.soundEvents.START);
 	}
 
-	void OnTimeRunOunt ()
+    void OnTimeRunOunt()
     {
-		PlayerDied();
+        if (gameState == GameState.GAME_RUNNING)
+        {
+            PlayerDied();
+        }
+		
 	}
 
-	public void OpenNextLevel ()
+    public void OpenNextLevel()
     {
-		try{
-			currentLevel ++ ;
-			OpenLevel();
-		}catch(System.IndexOutOfRangeException){
-			gameState = GameState.GAME_OVER;
-			endGameScreen.SetActive(true);
-		}
-	}
+        currentLevel++;
 
-	public void PlayerReachedGoal ()
+        if (ThereIsNoNextLevel())
+        {
+            gameState = GameState.END_GAME;
+            guiHUD.SetActive(false);
+            endGameScreen.SetActive(true);
+            timer.StopTimer();
+            return;
+        }
+
+        OpenLevel();
+
+    }
+
+    private bool ThereIsNoNextLevel()
+    {
+        return currentLevel >= levelSequences.Length;
+    }
+
+    public void PlayerReachedGoal ()
     {
 		Sound.Instance.Play(3, (int)Sound.soundEvents.FINISH);
-		OpenNextLevel ();
+		OpenNextLevel();
 	}
 
 	public void PlayerDied ()
     {
-		playerLifes -- ;
+        guiHUD.SetActive(false);
+        playerLifes -- ;
 		if (playerLifes == 0){
 			GameOver ();
 			return;
@@ -127,6 +151,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
     {
 		Sound.Instance.Play(3, (int)Sound.soundEvents.GAMEOVER);
         gameOverScreen.SetActive(true);
+        guiHUD.SetActive(false);
+
         gameState = GameState.GAME_OVER;
 		timer.StopTimer ();
         levelLoader.destroyContent();

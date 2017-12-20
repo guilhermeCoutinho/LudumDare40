@@ -7,11 +7,8 @@ using System.Text;
 using Assets;
 
 public static class MDParser {
-#if UNITY_EDITOR
+
     public static string path = "LevelData/";
-#else
-     public static string path = "LevelData/";
-#endif
 
     public static void Parse(string fileName, ref LevelMetaData data)
     {
